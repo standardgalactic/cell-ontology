@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2020-05-21
+data-version: releases/2020-08-01
 subsetdef: ubprop:upper_level "abstract upper-level terms not directly useful for analysis"
 synonymtypedef: PLURAL "plural term"
 remark: See PMID:15693950, PMID:12799354, PMID:20123131, PMID:21208450; Contact Alexander Diehl, addiehl@buffalo.edu, University at Buffalo.
@@ -13,6 +13,7 @@ property_value: http://purl.org/dc/elements/1.1/contributor "Melissa Haendel" xs
 property_value: http://purl.org/dc/elements/1.1/contributor "Nicole Vasilevsky" xsd:string
 property_value: http://purl.org/dc/elements/1.1/contributor "Terry Meehan" xsd:string
 property_value: http://purl.org/dc/elements/1.1/contributor "Yvonne Bradford" xsd:string
+property_value: http://purl.org/dc/elements/1.1/description "An ontology of cell types." xsd:string
 property_value: http://purl.org/dc/elements/1.1/license http://creativecommons.org/licenses/by/4.0/
 property_value: http://purl.org/dc/elements/1.1/title "Cell Ontology" xsd:string
 
@@ -64,7 +65,8 @@ comment: To accommodate unicellular organisms better, 'cell in vivo' has been re
 subset: ubprop:upper_level
 synonym: "cell in vivo" NARROW []
 xref: CARO:0000013
-is_a: CL:0000000 ! cell
+is_a: CL:0001083 ! cell, human
+is_a: CL:0001085 ! cell, mouse
 
 [Term]
 id: CL:0000004
@@ -401,6 +403,7 @@ xref: FMA:86475
 xref: VHOG:0001485
 is_a: CL:0000723 ! somatic stem cell
 is_a: CL:0008001 ! hematopoietic precursor cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000566 ! angioblastic mesenchymal cell
 
 [Term]
@@ -562,7 +565,7 @@ synonym: "megakaryocyte/erythroid progenitor cell" EXACT []
 synonym: "MEP" EXACT []
 is_a: CL:0000763 ! myeloid cell
 is_a: CL:0002032 ! hematopoietic oligopotent progenitor cell
-is_a: CL:0011115 ! precursor cell
+is_a: CL:0011026 ! progenitor cell
 
 [Term]
 id: CL:0000051
@@ -581,7 +584,7 @@ synonym: "ELP" RELATED []
 synonym: "lymphoid stem cell" RELATED []
 synonym: "lymphopoietic stem cell" RELATED []
 is_a: CL:0002032 ! hematopoietic oligopotent progenitor cell
-is_a: CL:0011115 ! precursor cell
+is_a: CL:0011026 ! progenitor cell
 
 [Term]
 id: CL:0000052
@@ -675,6 +678,7 @@ xref: FMA:62999
 is_a: CL:0000055 ! non-terminally differentiated cell
 is_a: CL:0000710 ! neurecto-epithelial cell
 is_a: CL:0002159 ! general ecto-epithelial cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0007003 ! preodontoblast
 
 [Term]
@@ -702,6 +706,7 @@ xref: CALOHA:TS-0720
 xref: FMA:66780
 is_a: CL:0000055 ! non-terminally differentiated cell
 is_a: CL:0002320 ! connective tissue cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0007010 ! preosteoblast
 
 [Term]
@@ -903,7 +908,8 @@ xref: BTO:0000782
 xref: CALOHA:TS-1001
 xref: FMA:62870
 xref: VHOG:0001479
-is_a: CL:0000542 ! lymphocyte
+is_a: CL:0001084 ! lymphocyte, human
+is_a: CL:0001086 ! lymphocyte, mouse
 relationship: develops_from CL:0000827 ! pro-T cell
 
 [Term]
@@ -3132,6 +3138,7 @@ def: "A cell derived from the specialized ectoderm flanking each side of the emb
 xref: FMA:86667
 is_a: CL:0000219 ! motile cell
 is_a: CL:0011012 ! neural crest cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0007004 ! premigratory neural crest cell
 
 [Term]
@@ -3178,6 +3185,7 @@ synonym: "spongioblast" EXACT []
 xref: FMA:70564
 is_a: CL:0000030 ! glioblast
 is_a: CL:0000123 ! neuron associated cell (sensu Vertebrata)
+is_a: CL:0011026 ! progenitor cell
 
 [Term]
 id: CL:0000340
@@ -3230,6 +3238,7 @@ namespace: cell
 def: "A specialized mesenchymal cell that resides in the dermal papilla located at the bottom of hair follicles. This cell plays a pivotal roles in hair formation, growth, and cycling." [GOC:tfm, PMID:9893172]
 comment: Are these really all stem cells?
 is_a: CL:0000134 ! mesenchymal stem cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000333 ! migratory neural crest cell
 
 [Term]
@@ -3515,6 +3524,7 @@ id: CL:0000383
 name: nephrogenic mesenchyme stem cell
 namespace: cell
 is_a: CL:0000134 ! mesenchymal stem cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000134 ! mesenchymal stem cell
 
 [Term]
@@ -4178,6 +4188,7 @@ namespace: cell
 def: "A neural progenitor cell that is the daughter of a neuroblast (sensu arthopoda).  The progeny of ganglion mother cells develop into neurons, glia and (occasionally) epithelial cells." []
 xref: FBbt:00005149
 is_a: CL:0011020 ! neural progenitor cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000338 ! neuroblast (sensu Nematoda and Protostomia)
 
 [Term]
@@ -4567,6 +4578,7 @@ def: "A myoblast that differentiates into skeletal muscle fibers." [SANBI:mhl]
 synonym: "skeletal myoblast" EXACT []
 xref: FMA:84799
 is_a: CL:0000056 ! myoblast
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000355 ! multi-potent skeletal muscle stem cell
 
 [Term]
@@ -4782,6 +4794,7 @@ xref: BTO:0003217
 xref: FMA:83377
 is_a: CL:0000055 ! non-terminally differentiated cell
 is_a: CL:0002371 ! somatic cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000333 ! migratory neural crest cell
 
 [Term]
@@ -4983,7 +4996,7 @@ synonym: "granulocyte/monocyte precursor" EXACT []
 synonym: "granulocyte/monocyte progenitor" EXACT []
 is_a: CL:0000763 ! myeloid cell
 is_a: CL:0001012 ! CD7-negative lymphoid progenitor OR granulocyte monocyte progenitor
-is_a: CL:0011115 ! precursor cell
+is_a: CL:0011026 ! progenitor cell
 is_a: CL:1001610 ! bone marrow hematopoietic cell
 
 [Term]
@@ -5083,6 +5096,7 @@ comment: These cells are reportedly CD31-positive, CD34-positive, CD144-positive
 synonym: "angioblast" EXACT []
 synonym: "chondroplast" EXACT []
 is_a: CL:0000134 ! mesenchymal stem cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000134 ! mesenchymal stem cell
 
 [Term]
@@ -5176,7 +5190,7 @@ xref: CALOHA:TS-0638
 xref: FMA:62864
 is_a: CL:0000766 ! myeloid leukocyte
 is_a: CL:0000842 ! mononuclear cell
-is_a: CL:0011115 ! precursor cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000559 ! promonocyte
 
 [Term]
@@ -5624,7 +5638,7 @@ is_a: CL:0000154 ! protein secreting cell
 id: CL:0000623
 name: natural killer cell
 namespace: cell
-def: "A lymphocyte that can spontaneously kill a variety of target cells without prior antigenic activation via germline encoded activation receptors and also regulate immune responses via cytokine release and direct contact with other cells." [GOC:add, ISBN:0781735149, PMID:15771571]
+def: "A lymphocyte that can spontaneously kill a variety of target cells without prior antigenic activation via germline encoded activation receptors and also regulate immune responses via cytokine release and direct contact with other cells." []
 synonym: "large granular lymphocyte" BROAD []
 synonym: "NK cell" EXACT []
 synonym: "null cell" BROAD []
@@ -5636,6 +5650,15 @@ xref: FMA:83601
 xref: VHOG:0001697
 is_a: CL:0001067 ! group 1 innate lymphoid cell
 relationship: develops_from CL:0000825 ! pro-NK cell
+property_value: database_cross_reference BTO:0000914 xsd:string
+property_value: database_cross_reference BTO:0004716 xsd:string
+property_value: database_cross_reference CALOHA:TS-0664 xsd:string
+property_value: database_cross_reference FMA:63147 xsd:string
+property_value: database_cross_reference FMA:83601 xsd:string
+property_value: database_cross_reference VHOG:0001697 xsd:string
+property_value: has_broad_synonym "large granular lymphocyte" xsd:string
+property_value: has_broad_synonym "null cell" xsd:string
+property_value: has_exact_synonym "NK cell" xsd:string
 
 [Term]
 id: CL:0000624
@@ -6851,7 +6874,7 @@ xref: BTO:0001571
 xref: CALOHA:TS-0289
 xref: FMA:83504
 is_a: CL:0000764 ! erythroid lineage cell
-is_a: CL:0011115 ! precursor cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000547 ! proerythroblast
 
 [Term]
@@ -7595,23 +7618,29 @@ is_a: CL:0000785 ! mature B cell
 id: CL:0000823
 name: immature natural killer cell
 namespace: cell
-def: "A natural killer cell that is developmentally immature and expresses natural killer cell receptors (NKR)." [GO_REF:0000031, GOC:add, ISBN:0781735149, PMID:12457618]
+def: "A natural killer cell that is developmentally immature and expresses natural killer cell receptors (NKR)." []
 comment: In mouse the NKR are Ly49 molecules and in human these cells express KIR molecules.
 synonym: "immature NK cell" EXACT []
 synonym: "p-NK" RELATED [PMID:12457618]
 is_a: CL:0000623 ! natural killer cell
+is_a: CL:0001082 ! immature innate lymphoid cell
 relationship: develops_from CL:0000937 ! pre-natural killer cell
+property_value: has_exact_synonym "immature NK cell" xsd:string
+property_value: has_related_synonym "p-NK" xsd:string
 
 [Term]
 id: CL:0000824
 name: mature natural killer cell
 namespace: cell
-def: "A natural killer cell that is developmentally mature and expresses a variety of inhibitory and activating receptors that recognize MHC class I and other stress related molecules." [GO_REF:0000031, GOC:add, ISBN:0781735149, PMID:14685782]
+def: "A natural killer cell that is developmentally mature and expresses a variety of inhibitory and activating receptors that recognize MHC class I and other stress related molecules." []
 synonym: "LAK cell" BROAD [PMID:14685782]
 synonym: "lymphokine activated killer cell" BROAD [PMID:14685782]
 synonym: "mature NK cell" EXACT []
 is_a: CL:0000623 ! natural killer cell
 relationship: develops_from CL:0000823 ! immature natural killer cell
+property_value: has_broad_synonym "LAK cell" xsd:string
+property_value: has_broad_synonym "lymphokine activated killer cell" xsd:string
+property_value: has_exact_synonym "mature NK cell" xsd:string
 
 [Term]
 id: CL:0000825
@@ -7774,7 +7803,7 @@ xref: BTO:0004731
 xref: CALOHA:TS-2025
 xref: FMA:70338
 is_a: CL:0002031 ! hematopoietic lineage restricted progenitor cell
-is_a: CL:0011115 ! precursor cell
+is_a: CL:0011026 ! progenitor cell
 
 [Term]
 id: CL:0000839
@@ -7787,7 +7816,7 @@ xref: BTO:0004730
 xref: CALOHA:TS-2099
 xref: FMA:70339
 is_a: CL:0002031 ! hematopoietic lineage restricted progenitor cell
-is_a: CL:0011115 ! precursor cell
+is_a: CL:0011026 ! progenitor cell
 
 [Term]
 id: CL:0000840
@@ -8853,33 +8882,38 @@ synonym: "GMLP" RELATED [PMID:18371378]
 synonym: "LMPP" EXACT []
 synonym: "lymphoid-primed multipotent progenitor" EXACT []
 is_a: CL:0000837 ! hematopoietic multipotent progenitor cell
-is_a: CL:0011115 ! precursor cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0002035 ! Slamf1-negative multipotent progenitor cell
 
 [Term]
 id: CL:0000937
 name: pre-natural killer cell
 namespace: cell
-def: "Cell committed to natural killer cell lineage that has the phenotype CD122-positive, CD34-positive, and CD117-positive. This cell type lacks expression of natural killer receptor proteins." [GO_REF:0000031, GOC:add, GOC:dsd, GOC:pam, GOC:tfm, PMID:16551251, PMID:17100874]
+def: "Cell committed to natural killer cell lineage that has the phenotype CD122-positive, CD34-positive, and CD117-positive. This cell type lacks expression of natural killer receptor proteins." []
 comment: These cells are also reportedly CD7-low, CD10-negative, CD45RA-positive, alpha-4-beta-7 integrin-high.
 synonym: "pre-NK cell" EXACT []
 is_a: CL:0000623 ! natural killer cell
+property_value: has_exact_synonym "pre-NK cell" xsd:string
 
 [Term]
 id: CL:0000938
-name: CD16-negative, CD56-bright natural killer cell
+name: CD16-negative, CD56-bright natural killer cell, human
 namespace: cell
-def: "NK cell that has the phenotype CD56-bright, CD16-negative, and CD84-positive with the function to secrete interferon-gamma but is not cytotoxic." [GO_REF:0000031, GOC:add, GOC:pam, GOC:tfm, PMID:19796267, PMID:22343568]
+def: "NK cell that has the phenotype CD56-bright, CD16-negative, and CD84-positive with the function to secrete interferon-gamma but is not cytotoxic." []
 comment: This cell type is compatible with the HIPC Lyoplate markers for 'CD16-CD56bright NK cell'. Markers are associated with human cell types.
 synonym: "CD16-CD56bright NK cell" EXACT [PMID:22343568]
 synonym: "CD16-negative, CD56-bright NK cell" EXACT []
 synonym: "CD56-bright cytokine secreting natural killer cell" EXACT []
 synonym: "CD56-bright cytokine secreting NK cell" EXACT []
 is_a: CL:0000824 ! mature natural killer cell
+property_value: has_exact_synonym "CD16-CD56bright NK cell" xsd:string
+property_value: has_exact_synonym "CD16-negative, CD56-bright NK cell" xsd:string
+property_value: has_exact_synonym "CD56-bright cytokine secreting natural killer cell" xsd:string
+property_value: has_exact_synonym "CD56-bright cytokine secreting NK cell" xsd:string
 
 [Term]
 id: CL:0000939
-name: CD16-positive, CD56-dim natural killer cell
+name: CD16-positive, CD56-dim natural killer cell, human
 namespace: cell
 def: "A mature natural killer cell that has the phenotype CD56-low, CD16-positive and which is capable of cytotoxicity and cytokine production." [GO_REF:0000031, GOC:add, GOC:pam, PMID:19796267, PMID:22343568]
 comment: This cell type is compatible with the HIPC Lyoplate markers for 'CD16+CD56+ NK cell'. Markers are associated with human cell types.
@@ -8892,6 +8926,14 @@ synonym: "CD16-positive, CD56-positive NK cell" EXACT []
 synonym: "cytotoxic CD56-dim natural killer cell" EXACT []
 synonym: "cytotoxic CD56-dim NK cell" EXACT []
 is_a: CL:0000824 ! mature natural killer cell
+property_value: has_exact_synonym "CD16+CD56+ NK cell" xsd:string
+property_value: has_exact_synonym "CD16-positive, CD56-dim NK cell" xsd:string
+property_value: has_exact_synonym "CD16-positive, CD56-low natural killer cell" xsd:string
+property_value: has_exact_synonym "CD16-positive, CD56-low NK cell" xsd:string
+property_value: has_exact_synonym "CD16-positive, CD56-positive natural killer cell" xsd:string
+property_value: has_exact_synonym "CD16-positive, CD56-positive NK cell" xsd:string
+property_value: has_exact_synonym "cytotoxic CD56-dim natural killer cell" xsd:string
+property_value: has_exact_synonym "cytotoxic CD56-dim NK cell" xsd:string
 
 [Term]
 id: CL:0000940
@@ -8946,7 +8988,8 @@ name: lymphocyte of B lineage
 namespace: cell
 def: "A lymphocyte of B lineage with the commitment to express an immunoglobulin complex." [GO_REF:0000031, GOC:add, GOC:rhs, GOC:tfm, ISBN:0781735149]
 comment: Types of B lineage lymphocytes include B cells and antibody secreting cells (plasmablasts and plasma cells).  Lymphocytes of B cell lineage can be distinguished from those of T cell lineage by their lack of CD3e (as part of the T cell receptor complex).
-is_a: CL:0000542 ! lymphocyte
+is_a: CL:0001084 ! lymphocyte, human
+is_a: CL:0001086 ! lymphocyte, mouse
 relationship: develops_from CL:0000826 ! pro-B cell
 
 [Term]
@@ -9839,7 +9882,8 @@ name: cell in vitro
 namespace: cell
 def: "A cell that is maintained or propagated in a controlled artificial environment for use in an investigation." [ReO:mhb]
 comment: 'In vitro', translating literally to 'in glass', typically refers to a controlled, often sterile, laboratory setting where cells or other specimens are placed by some agent for the purpose of studying or manipulating them as part of some research investigation. 'In vitro' is intended to contrast with 'native',which refers to cells or other biological entities that are found in a natural setting. It describes unicellular organisms removed from a natural environement and multicellular organism cells removed from an organism, or cells derived in culture from such displaced cells.
-is_a: CL:0000000 ! cell
+is_a: CL:0001083 ! cell, human
+is_a: CL:0001085 ! cell, mouse
 created_by: haendel
 creation_date: 2012-01-12T09:58:38Z
 
@@ -10099,7 +10143,7 @@ synonym: "multipotential myeloid stem cell" RELATED [ISBN:0878932437]
 synonym: "myeloid stem cell" RELATED [ISBN:0878932437]
 synonym: "pluripotent stem cell (bone marrow)" RELATED [ISBN:0878932437]
 is_a: CL:0000049 ! common myeloid progenitor
-is_a: CL:0011115 ! precursor cell
+is_a: CL:0011026 ! progenitor cell
 
 [Term]
 id: CL:0001060
@@ -10117,7 +10161,8 @@ namespace: cell
 def: "A cell found in an organism or derived from an organism exhibiting a phenotype that deviates from the expected phenotype of any native cell type of that organism. Abnormal cells are typically found in disease states or disease models." [GOC:add, GOC:cg, GOC:wdd]
 comment: https://github.com/obophenotype/cell-ontology/issues/448
 xref: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C12913
-is_a: CL:0000000 ! cell
+is_a: CL:0001083 ! cell, human
+is_a: CL:0001085 ! cell, mouse
 property_value: http://purl.org/dc/elements/1.1/creator http://orcid.org/0000-0001-9990-8331
 property_value: http://purl.org/dc/elements/1.1/date 2017-01-30T18:53:32Z xsd:dateTime
 
@@ -10160,10 +10205,13 @@ property_value: http://purl.org/dc/elements/1.1/date 2017-01-30T19:39:12Z xsd:da
 id: CL:0001065
 name: innate lymphoid cell
 namespace: cell
-def: "A lymphocyte that lacks characteristic T cell, B cell, myeloid cell, and dendritic cell markers, that functions as part of the innate immune response to produce cytokines and other effector responses." [GOC:add, GOC:dsd, PMID:23292121, PMID:23348417]
-is_a: CL:0000542 ! lymphocyte
+def: "A lymphocyte that lacks characteristic T cell, B cell, myeloid cell, and dendritic cell markers, that functions as part of the innate immune response to produce cytokines and other effector responses." []
+is_a: CL:0001084 ! lymphocyte, human
+is_a: CL:0001086 ! lymphocyte, mouse
 property_value: http://purl.org/dc/elements/1.1/creator http://orcid.org/0000-0001-9990-8331
 property_value: http://purl.org/dc/elements/1.1/date 2017-01-30T20:20:48Z xsd:dateTime
+property_value: http://purl.org/dc/terms/creator http://orcid.org/0000-0001-9990-8331
+property_value: http://purl.org/dc/terms/date 2017-01-30T20:20:48Z xsd:string
 
 [Term]
 id: CL:0001066
@@ -10183,30 +10231,39 @@ is_a: CL:0000038 ! erythroid progenitor cell
 id: CL:0001067
 name: group 1 innate lymphoid cell
 namespace: cell
-def: "An innate lymphoid cell that is capable of producing the type 1 cytokine IFN-gamma, but not Th2 or Th17 cell-associated cytokines." [GOC:add, GOC:dsd, PMID:23348417]
+def: "An innate lymphoid cell that is capable of producing the type 1 cytokine IFN-gamma, but not Th2 or Th17 cell-associated cytokines." []
 is_a: CL:0001065 ! innate lymphoid cell
 property_value: http://purl.org/dc/elements/1.1/creator http://orcid.org/0000-0001-9990-8331
 property_value: http://purl.org/dc/elements/1.1/date 2017-01-30T20:42:44Z xsd:dateTime
+property_value: http://purl.org/dc/terms/creator http://orcid.org/0000-0001-9990-8331
+property_value: http://purl.org/dc/terms/date 2017-01-30T20:42:44Z xsd:string
 
 [Term]
 id: CL:0001068
 name: ILC1
 namespace: cell
-def: "A group 1 innate lymphoid cell that is non-cytotoxic." [GOC:add, GOC:dsd, PMID:23292121, PMID:23348417]
+def: "A group 1 innate lymphoid cell that is non-cytotoxic." []
 is_a: CL:0001067 ! group 1 innate lymphoid cell
 property_value: http://purl.org/dc/elements/1.1/creator http://orcid.org/0000-0001-9990-8331
 property_value: http://purl.org/dc/elements/1.1/date 2017-01-30T20:54:12Z xsd:dateTime
+property_value: http://purl.org/dc/terms/creator http://orcid.org/0000-0001-9990-8331
+property_value: http://purl.org/dc/terms/date 2017-01-30T20:54:12Z xsd:string
 
 [Term]
 id: CL:0001069
 name: group 2 innate lymphoid cell
 namespace: cell
-def: "An innate lymphoid cell that is capable of producing T-helper 2-cell associated cytokines upon stimulation." [GOC:add, GOC:dsd, PMID:23292121, PMID:23562755]
+def: "An innate lymphoid cell that is capable of producing T-helper 2-cell associated cytokines upon stimulation." []
 synonym: "ILC2" EXACT []
 synonym: "nuocyte" EXACT []
 is_a: CL:0001065 ! innate lymphoid cell
+property_value: has_exact_synonym "ILC2" xsd:string
+property_value: has_exact_synonym "natural helper cell" xsd:string
+property_value: has_exact_synonym "nuocyte" xsd:string
 property_value: http://purl.org/dc/elements/1.1/creator http://orcid.org/0000-0001-9990-8331
 property_value: http://purl.org/dc/elements/1.1/date 2017-01-30T21:20:08Z xsd:dateTime
+property_value: http://purl.org/dc/terms/creator http://orcid.org/0000-0001-9990-8331
+property_value: http://purl.org/dc/terms/date 2017-01-30T21:20:08Z xsd:string
 
 [Term]
 id: CL:0001070
@@ -10228,8 +10285,113 @@ namespace: cell
 def: "An innate lymphoid cell that constituitively expresses RORgt and is capable of expressing IL17A and/or IL-22." [GOC:add, GOC:dsd, PMID:23292121, PMID:23348417]
 synonym: "ILC3" EXACT []
 is_a: CL:0001065 ! innate lymphoid cell
+property_value: has_exact_synonym "ILC3" xsd:string
 property_value: http://purl.org/dc/elements/1.1/creator http://orcid.org/0000-0001-9990-8331
 property_value: http://purl.org/dc/elements/1.1/date 2017-01-31T20:21:26Z xsd:dateTime
+property_value: http://purl.org/dc/terms/creator http://orcid.org/0000-0001-9990-8331
+property_value: http://purl.org/dc/terms/date 2017-01-31T20:21:26Z xsd:string
+
+[Term]
+id: CL:0001072
+name: CD34-negative, CD117-positive innate lymphoid cell, human
+def: "An innate lymphoid cell in the human with the phenotype CD34-negative, CD117-positive, and a precusor to NK cells, ILC2 cells, and ILC3 cells." []
+is_a: CL:0001082 ! immature innate lymphoid cell
+relationship: develops_from CL:0001074 ! CD34-positive, CD56-positive, CD117-positive common innate lymphoid precursor, human
+property_value: has_exact_synonym "CD34-negative, CD117-positive ILC" xsd:string
+property_value: has_exact_synonym "CD34-negative, CD117-positive ILCP" xsd:string
+property_value: has_exact_synonym "CD34-negative, CD117-positive innate lymphoid cell precusor" xsd:string
+
+[Term]
+id: CL:0001073
+name: CD34-negative, CD56-positive, CD117-positive innate lymphoid cell, human
+def: "An innate lymphoid cell in the human with the phenotype CD34-negative, CD56-positive, CD117-positive.Thie cell type may include precusors to NK cells and ILC3 cells." []
+is_a: CL:0001072 ! CD34-negative, CD117-positive innate lymphoid cell, human
+property_value: has_exact_synonym "CD34-negative, CD56-positive, CD117-positive ILC" xsd:string
+property_value: has_exact_synonym "CD34-negative, CD56-positive, CD117-positive ILCP" xsd:string
+property_value: has_exact_synonym "CD34-negative, CD56-positive, CD117-positive innate lymphoid cell precursor" xsd:string
+
+[Term]
+id: CL:0001074
+name: CD34-positive, CD56-positive, CD117-positive common innate lymphoid precursor, human
+def: "An innate lymphoid cell precursor in the human with the phenotype CD34-positive, CD56-positive, CD117-positive.Thie cell type may include precusors to NK cells and ILC3 cells." []
+is_a: CL:0001082 ! immature innate lymphoid cell
+property_value: has_exact_synonym "CD34-positive, CD56-positive, CD117-positive CILP" xsd:string
+
+[Term]
+id: CL:0001075
+name: KLRG1-positive innate lymphoid cell, human
+def: "An innate lymphoid cell in the human with the phenotype KLRG1-positive that is a precusor for ILC2 cells." []
+is_a: CL:0001072 ! CD34-negative, CD117-positive innate lymphoid cell, human
+property_value: has_exact_synonym "KLRG1-positive ILC" xsd:string
+
+[Term]
+id: CL:0001076
+name: NKp46-positive innate lymphoid cell, human
+def: "An innate lymphoid cell in the human with the phenotype NKp46-positive that is a precusor for NK cells and ILC3 cells." []
+is_a: CL:0001074 ! CD34-positive, CD56-positive, CD117-positive common innate lymphoid precursor, human
+property_value: has_exact_synonym "NKp46-positive ILC" xsd:string
+
+[Term]
+id: CL:0001077
+name: ILC1, human
+def: "An ILC1 cell in the human with the phenotype CD56-negative, IL-7Ralpha-positive, T-bet-positive." []
+is_a: CL:0001068 ! ILC1
+property_value: has_exact_synonym "innate lymphoid cell 1, human" xsd:string
+
+[Term]
+id: CL:0001078
+name: group 3 innate lymphoid cell, human
+def: "A group 3 innate lymphoid cell in the human with the phenotype IL-7Ralpha-positive." []
+is_a: CL:0001071 ! group 3 innate lymphoid cell
+property_value: has_exact_synonym "ILC3, human" xsd:string
+
+[Term]
+id: CL:0001079
+name: NKp44-positive group 3 innate lymphoid cell, human
+def: "A group 3 innate lymphoid cell in the human with the phenotype IL-7Ralpha-positive, and NKp44-positive." []
+is_a: CL:0001078 ! group 3 innate lymphoid cell, human
+property_value: has_exact_synonym "ILC3, human" xsd:string
+
+[Term]
+id: CL:0001080
+name: NKp44-negative group 3 innate lymphoid cell, human
+def: "A group 3 innate lymphoid cell in the human with the phenotype IL-7Ralpha-positive, and NKp44-negative." []
+is_a: CL:0001078 ! group 3 innate lymphoid cell, human
+property_value: has_exact_synonym "ILC3, human" xsd:string
+
+[Term]
+id: CL:0001081
+name: group 2 innate lymphoid cell, human
+def: "A group 2 innate lymphoid cell in the human with the phenotype CD25-positive, CD127-positive, CD161-positive, and GATA-3-positive." []
+is_a: CL:0001069 ! group 2 innate lymphoid cell
+property_value: has_exact_synonym "ILC2, human" xsd:string
+
+[Term]
+id: CL:0001082
+name: immature innate lymphoid cell
+def: "An innate lyphoid cell with an immature phenotype." []
+is_a: CL:0001065 ! innate lymphoid cell
+property_value: has_exact_synonym "immature ILC" xsd:string
+
+[Term]
+id: CL:0001083
+name: cell, human
+is_a: CL:0000000 ! cell
+
+[Term]
+id: CL:0001084
+name: lymphocyte, human
+is_a: CL:0000542 ! lymphocyte
+
+[Term]
+id: CL:0001085
+name: cell, mouse
+is_a: CL:0000000 ! cell
+
+[Term]
+id: CL:0001086
+name: lymphocyte, mouse
+is_a: CL:0000542 ! lymphocyte
 
 [Term]
 id: CL:0001200
@@ -10401,7 +10563,7 @@ def: "A progenitor cell that can give rise to plasmacytoid and myeloid dendritic
 synonym: "MDP" EXACT []
 is_a: CL:0000763 ! myeloid cell
 is_a: CL:0002032 ! hematopoietic oligopotent progenitor cell
-is_a: CL:0011115 ! precursor cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000557 ! granulocyte monocyte progenitor cell
 created_by: tmeehan
 creation_date: 2010-01-19T02:51:58Z
@@ -11348,9 +11510,10 @@ creation_date: 2010-07-22T03:26:00Z
 id: CL:0002089
 name: group 2 innate lymphoid cell, mouse
 namespace: cell
-def: "A group 2 innate lymphoid cell in the mouse capable of secreting IL-13 in response to a helminth infection. This cell is lineage-negative, ICOS-positive, IL1RL1-positive, IL7Ralpha-positive, and IL17Br-positive." [GOC:add, GOC:tfm, PMID:20200518]
+def: "A group 2 innate lymphoid cell in the mouse capable of secreting IL-13 in response to a helminth infection. This cell is lineage-negative, ICOS-positive, IL1RL1-positive, IL7Ralpha-positive, and IL17Br-positive." []
 synonym: "nuocyte" BROAD []
 is_a: CL:0001069 ! group 2 innate lymphoid cell
+property_value: has_broad_synonym "nuocyte" xsd:string
 created_by: tmeehan
 creation_date: 2010-08-12T02:22:19Z
 
@@ -12437,6 +12600,7 @@ def: "A basally situated, mitotically active, columnar-shaped keratinocyte attac
 xref: FMA:70571
 is_a: CL:0000312 ! keratinocyte
 is_a: CL:0000646 ! basal cell
+is_a: CL:0011026 ! progenitor cell
 is_a: CL:1000428 ! stem cell of epidermis
 created_by: tmeehan
 creation_date: 2010-08-26T03:12:49Z
@@ -14180,18 +14344,20 @@ def: "A stem cell located in the bulge of the hair follicle that can give rise t
 synonym: "bulge keratinocyte" EXACT []
 is_a: CL:0000048 ! multi fate stem cell
 is_a: CL:0000312 ! keratinocyte
+is_a: CL:0011026 ! progenitor cell
 created_by: tmeehan
 creation_date: 2010-09-20T03:07:03Z
 
 [Term]
 id: CL:0002338
-name: CD56-positive, CD161-positive immature natural killer cell
+name: CD56-positive, CD161-positive immature natural killer cell, human
 namespace: cell
 def: "A natural killer cell that is developmentally immature, has the phenotype CD34-negative, CD56-positive, CD117-positive, CD122-positive,and CD161-positive." [GO_REF:0000031, GOC:add, https://orcid.org/0000-0001-5208-3432, ISBN:0781735149, PMID:12457618]
 comment: Human markers; killer cell immunoglobulin-like receptor 2DL1 is used as a representative example (PRO at this time lacks a KIR superfamily).
 synonym: "p-NK" RELATED [PMID:12457618]
 is_a: CL:0000823 ! immature natural killer cell
-relationship: develops_from CL:0002344 ! CD56-negative, CD161-positive immature natural killer cell
+relationship: develops_from CL:0002344 ! CD56-negative, CD161-positive immature natural killer cell, human
+property_value: has_related_synonym "p-NK" xsd:string
 created_by: tmeehan
 creation_date: 2010-09-21T10:06:53Z
 
@@ -14235,41 +14401,45 @@ creation_date: 2010-09-20T03:49:58Z
 
 [Term]
 id: CL:0002343
-name: decidual natural killer cell
+name: decidual natural killer cell, human
 namespace: cell
-def: "A natural killer cell subset that is found in the decidual of the uterus and is CD56-high, Galectin-1-positive and CD16-negative. This cell type represents the most abundant immune cell type in the decidual during the first trimester of pregnancy." [PMID:14568979, PMID:19800965]
+def: "A natural killer cell subset that is found in the decidual of the uterus and is CD56-high, Galectin-1-positive and CD16-negative. This cell type represents the most abundant immune cell type in the decidual during the first trimester of pregnancy." []
 synonym: "decidual NK cell" EXACT []
 synonym: "dNK cell" EXACT []
 is_a: CL:0000824 ! mature natural killer cell
+property_value: has_exact_synonym "decidual NK cell" xsd:string
+property_value: has_exact_synonym "dNK cell" xsd:string
 created_by: tmeehan
 creation_date: 2010-09-20T04:00:02Z
 
 [Term]
 id: CL:0002344
-name: CD56-negative, CD161-positive immature natural killer cell
+name: CD56-negative, CD161-positive immature natural killer cell, human
 namespace: cell
-def: "A natural killer cell that is developmentally immature, has the phenotype CD34-negative, CD56-negative, CD117-positive, CD122-positive,and CD161-positive." [GO_REF:0000031, GOC:add, ISBN:0781735149, PMID:12457618]
+def: "A natural killer cell that is developmentally immature, has the phenotype CD34-negative, CD56-negative, CD117-positive, CD122-positive,and CD161-positive." []
 comment: Human markers; killer cell immunoglobulin-like receptor 2DL1 is used as a representative example (PRO at this time lacks a KIR superfamily).
 synonym: "p-NK" RELATED [PMID:12457618]
 is_a: CL:0000823 ! immature natural killer cell
+property_value: has_related_synonym "p-NK" xsd:string
 created_by: tmeehan
 creation_date: 2010-09-20T04:33:11Z
 
 [Term]
 id: CL:0002345
-name: CD27-low, CD11b-low immature natural killer cell
+name: CD27-low, CD11b-low immature natural killer cell, mouse
 namespace: cell
 def: "An immature natural killer cell that is NK1.1-positive, DX5-positive, Ly49-positive, CD27-low and CD11b-low. This cell type is found in high numbers in the liver." [GOC:tfm, http:www.immgen.org/index_content.html, PMID:19949422]
 comment: Markers are associated with mouse cells.
 synonym: "preNK.BM" BROAD []
 is_a: CL:0000823 ! immature natural killer cell
-relationship: develops_from CL:0002346 ! Dx5-negative, NK1.1-positive immature natural killer cell
+relationship: develops_from CL:0002346 ! Dx5-negative, NK1.1-positive immature natural killer cell, mouse
+property_value: has_broad_synonym "preNK.BM" xsd:string
 created_by: tmeehan
 creation_date: 2010-09-20T04:41:01Z
 
 [Term]
 id: CL:0002346
-name: Dx5-negative, NK1.1-positive immature natural killer cell
+name: Dx5-negative, NK1.1-positive immature natural killer cell, mouse
 namespace: cell
 def: "An immature natural killer cell that is NK1.1-positive and DX-5 negative." [GOC:tfm, PMID:12766763]
 is_a: CL:0000823 ! immature natural killer cell
@@ -14278,31 +14448,31 @@ creation_date: 2010-09-21T10:11:44Z
 
 [Term]
 id: CL:0002347
-name: CD27-high, CD11b-high natural killer cell
+name: CD27-high, CD11b-high natural killer cell, mouse
 namespace: cell
-def: "A mature natural killer cell that is CD27-high and CD11b-high. This cell type is capable of interferon-gamma secretion." [GOC:tfm, PMID:19949422]
-is_a: CL:0002426 ! CD11b-positive, CD27-positive natural killer cell
-relationship: develops_from CL:0002349 ! CD27-high, CD11b-low natural killer cell
+def: "A mature natural killer cell that is CD27-high and CD11b-high. This cell type is capable of interferon-gamma secretion." []
+is_a: CL:0002426 ! CD11b-positive, CD27-positive natural killer cell, mouse
+relationship: develops_from CL:0002349 ! CD27-high, CD11b-low natural killer cell, mouse
 created_by: tmeehan
 creation_date: 2010-09-21T10:19:49Z
 
 [Term]
 id: CL:0002348
-name: CD27-low, CD11b-high natural killer cell
+name: CD27-low, CD11b-high natural killer cell, mouse
 namespace: cell
-def: "A CD27-low, CD11b-high natural killer cell that has a higher threshold of activation due to higher expression of inhibitory receptors." [GOC:tfm, PMID:1994922]
-is_a: CL:0002426 ! CD11b-positive, CD27-positive natural killer cell
-relationship: develops_from CL:0002347 ! CD27-high, CD11b-high natural killer cell
+def: "A CD27-low, CD11b-high natural killer cell that has a higher threshold of activation due to higher expression of inhibitory receptors." []
+is_a: CL:0002426 ! CD11b-positive, CD27-positive natural killer cell, mouse
+relationship: develops_from CL:0002347 ! CD27-high, CD11b-high natural killer cell, mouse
 created_by: tmeehan
 creation_date: 2010-09-21T10:19:54Z
 
 [Term]
 id: CL:0002349
-name: CD27-high, CD11b-low natural killer cell
+name: CD27-high, CD11b-low natural killer cell, mouse
 namespace: cell
-def: "A natural killer cell that is CD27-high and CD11b-low." [GOC:tfm, PMID:1994922]
-is_a: CL:0002426 ! CD11b-positive, CD27-positive natural killer cell
-relationship: develops_from CL:0002345 ! CD27-low, CD11b-low immature natural killer cell
+def: "A natural killer cell that is CD27-high and CD11b-low." []
+is_a: CL:0002426 ! CD11b-positive, CD27-positive natural killer cell, mouse
+relationship: develops_from CL:0002345 ! CD27-low, CD11b-low immature natural killer cell, mouse
 created_by: tmeehan
 creation_date: 2010-09-21T10:20:00Z
 
@@ -14581,6 +14751,7 @@ namespace: cell
 def: "A giioblast cell that develops from a migratory neural crest cell. The SCP is embedded among neurons (axons) with minimal extracellular spaces separating them from nerve cell membranes and has no basal lamina. In rodents SCPs are the only cells in the Schwann cell linage that expresses Cdh19." [GOC:tfm]
 synonym: "Schwann cell precursor cell" EXACT []
 is_a: CL:0000030 ! glioblast
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000333 ! migratory neural crest cell
 created_by: tmeehan
 creation_date: 2010-09-24T02:06:10Z
@@ -15108,11 +15279,11 @@ creation_date: 2010-10-21T01:16:24Z
 
 [Term]
 id: CL:0002426
-name: CD11b-positive, CD27-positive natural killer cell
+name: CD11b-positive, CD27-positive natural killer cell, mouse
 namespace: cell
-def: "A mature natural killer cell that is CD11b-positive and CD27-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
+def: "A mature natural killer cell that is CD11b-positive and CD27-positive." []
 comment: A natural killer cell that is NK1.1-positive, CD11b-positive, and CD27-positive.
-is_a: CL:0002438 ! NK1.1-positive natural killer cell
+is_a: CL:0002438 ! NK1.1-positive natural killer cell, mouse
 created_by: tmeehan
 creation_date: 2010-10-25T03:07:59Z
 
@@ -15245,128 +15416,144 @@ creation_date: 2010-10-21T03:51:50Z
 
 [Term]
 id: CL:0002438
-name: NK1.1-positive natural killer cell
+name: NK1.1-positive natural killer cell, mouse
 namespace: cell
-def: "A mature NK cell that is NK1.1-positive." [GOC:tfm]
+def: "A mature NK cell that is NK1.1-positive." []
 comment: Note: Nk1.1 expression is restricted to C57BL strains of laboratory mice.
 synonym: "NK.sp" EXACT []
 synonym: "NK1.1-positive NK cell" EXACT []
 is_a: CL:0000824 ! mature natural killer cell
+property_value: has_exact_synonym "NK.sp" xsd:string
+property_value: has_exact_synonym "NK1.1-positive NK cell" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:18:04Z
 
 [Term]
 id: CL:0002439
-name: NKGA2-positive natural killer cell
+name: NKGA2-positive natural killer cell, mouse
 namespace: cell
-def: "A NK1.1-positive T cell that is NKGA2-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
+def: "A NK1.1-positive T cell that is NKGA2-positive." []
 synonym: "NK.G2A+.SP" EXACT []
-is_a: CL:0002438 ! NK1.1-positive natural killer cell
+is_a: CL:0002438 ! NK1.1-positive natural killer cell, mouse
+property_value: has_exact_synonym "NK.G2A+.SP" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:31:09Z
 
 [Term]
 id: CL:0002440
-name: Ly49D-positive natural killer cell
+name: Ly49D-positive natural killer cell, mouse
 namespace: cell
-def: "A NK1.1-positive T cell that is Ly49D-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
+def: "A NK1.1-positive T cell that is Ly49D-positive." []
 synonym: "NK.49D+.Sp" EXACT []
-is_a: CL:0002438 ! NK1.1-positive natural killer cell
+is_a: CL:0002438 ! NK1.1-positive natural killer cell, mouse
+property_value: has_exact_synonym "NK.49D+.Sp" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:36:19Z
 
 [Term]
 id: CL:0002441
-name: CD94-positive natural killer cell
+name: CD94-positive natural killer cell, mouse
 namespace: cell
-def: "A NK1.1-positive T cell that is CD94-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
+def: "A NK1.1-positive T cell that is CD94-positive." []
 synonym: "NK.94+.Sp" EXACT []
-is_a: CL:0002438 ! NK1.1-positive natural killer cell
+is_a: CL:0002438 ! NK1.1-positive natural killer cell, mouse
+property_value: has_exact_synonym "NK.94+.Sp" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:36:28Z
 
 [Term]
 id: CL:0002442
-name: CD94-negative, Ly49CI-negative natural killer cell
+name: CD94-negative, Ly49CI-negative natural killer cell, mouse
 namespace: cell
 def: "A NK1.1-positive T cell that is CD94-negative and Ly49Cl-negative." [GOC:tfm, http://www.immgen.org/index_content.html]
 synonym: "CD94- Ly49I-negative NK cell" EXACT []
 synonym: "NK.49Cl-94-.Sp" EXACT []
-is_a: CL:0002446 ! Ly49CI-negative natural killer cell
-is_a: CL:0002447 ! CD94-negative natural killer cell
+is_a: CL:0002446 ! Ly49CI-negative natural killer cell, mouse
+is_a: CL:0002447 ! CD94-negative natural killer cell, mouse
+property_value: has_exact_synonym "CD94- Ly49I-negative NK cell" xsd:string
+property_value: has_exact_synonym "NK.49Cl-94-.Sp" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:56:21Z
 
 [Term]
 id: CL:0002443
-name: Ly49CI-positive natural killer cell
+name: Ly49CI-positive natural killer cell, mouse
 namespace: cell
-def: "A NK1.1-positive T cell that is Ly49Cl-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
+def: "A NK1.1-positive T cell that is Ly49Cl-positive." []
 synonym: "Ly49I-positive NK cell" EXACT []
 synonym: "NK.49Cl+.Sp" EXACT []
-is_a: CL:0002438 ! NK1.1-positive natural killer cell
+is_a: CL:0002438 ! NK1.1-positive natural killer cell, mouse
+property_value: has_exact_synonym "Ly49I-positive NK cell" xsd:string
+property_value: has_exact_synonym "NK.49Cl+.Sp" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:36:38Z
 
 [Term]
 id: CL:0002444
-name: Ly49H-positive natural killer cell
+name: Ly49H-positive natural killer cell, mouse
 namespace: cell
 def: "A NK1.1-positive T cell that is Ly49H-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
 synonym: "LyH49H-positive" EXACT []
-is_a: CL:0002438 ! NK1.1-positive natural killer cell
+is_a: CL:0002438 ! NK1.1-positive natural killer cell, mouse
+property_value: has_exact_synonym "LyH49H-positive" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:36:43Z
 
 [Term]
 id: CL:0002445
-name: Ly49D-negative natural killer cell
+name: Ly49D-negative natural killer cell, mouse
 namespace: cell
 def: "A NK1.1-positive T cell that is Ly49D-negative." [GOC:tfm, http://www.immgen.org/index_content.html]
 synonym: "NK.49D-.Sp" EXACT []
-is_a: CL:0002438 ! NK1.1-positive natural killer cell
+is_a: CL:0002438 ! NK1.1-positive natural killer cell, mouse
+property_value: has_exact_synonym "NK.49D-.Sp" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:39:02Z
 
 [Term]
 id: CL:0002446
-name: Ly49CI-negative natural killer cell
+name: Ly49CI-negative natural killer cell, mouse
 namespace: cell
 def: "A NK1.1-positive T cell that is Ly49Cl-negative." [GOC:tfm, http://www.immgen.org/index_content.html]
 synonym: "Ly49I-negative NK cell" EXACT []
 synonym: "NK.49Cl-.Sp" EXACT []
-is_a: CL:0002438 ! NK1.1-positive natural killer cell
+is_a: CL:0002438 ! NK1.1-positive natural killer cell, mouse
+property_value: has_exact_synonym "Ly49I-negative NK cell" xsd:string
+property_value: has_exact_synonym "NK.49Cl-.Sp" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:52:04Z
 
 [Term]
 id: CL:0002447
-name: CD94-negative natural killer cell
+name: CD94-negative natural killer cell, mouse
 namespace: cell
 def: "A NK1.1-positive T cell that is CD94-negative." [GOC:tfm, http://www.immgen.org/index_content.html]
 synonym: "NK.94-.Sp" EXACT []
-is_a: CL:0002438 ! NK1.1-positive natural killer cell
+is_a: CL:0002438 ! NK1.1-positive natural killer cell, mouse
+property_value: has_exact_synonym "NK.94-.Sp" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:54:18Z
 
 [Term]
 id: CL:0002448
-name: Ly49H-negative natural killer cell
+name: Ly49H-negative natural killer cell, mouse
 namespace: cell
-def: "A NK1.1-positive T cell that is Ly49H-negative." [GOC:tfm, http://www.immgen.org/index_content.html]
+def: "A NK1.1-positive T cell that is Ly49H-negative." []
 synonym: "LyH49H-negative" EXACT []
-is_a: CL:0002438 ! NK1.1-positive natural killer cell
+is_a: CL:0002438 ! NK1.1-positive natural killer cell, mouse
+property_value: has_exact_synonym "LyH49H-negative" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:42:42Z
 
 [Term]
 id: CL:0002449
-name: CD94-positive Ly49CI-positive natural killer cell
+name: CD94-positive Ly49CI-positive natural killer cell, mouse
 namespace: cell
 def: "A NK1.1-positive T cell that is CD94-positive and Ly49Cl-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
 synonym: "NK.49Cl+94+.Sp" EXACT []
-is_a: CL:0002441 ! CD94-positive natural killer cell
-is_a: CL:0002443 ! Ly49CI-positive natural killer cell
+is_a: CL:0002441 ! CD94-positive natural killer cell, mouse
+is_a: CL:0002443 ! Ly49CI-positive natural killer cell, mouse
+property_value: has_exact_synonym "NK.49Cl+94+.Sp" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:56:27Z
 
@@ -17597,6 +17784,7 @@ name: neural crest derived neuroblast
 namespace: cell
 def: "A neuroblast derived from a neural crest cell." [GOC:tfm, PMID:17407019]
 is_a: CL:0000031 ! neuroblast (sensu Vertebrata)
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000333 ! migratory neural crest cell
 created_by: tmeehan
 creation_date: 2011-08-22T09:24:15Z
@@ -17631,7 +17819,8 @@ id: CL:0002679
 name: natural helper lymphocyte
 namespace: cell
 def: "A lymphocyte found in adipose tissue that lacks lineage markers of other lymphocytes but is capable of mediating TH2 cytokine responses. This cell type is found in fat associated lymphoid clusters, proliferates in response to IL2 and produce large amounts of TH2 cytokines such as IL5, IL6 and IL13" [GOC:tfm, PMID:20023630]
-is_a: CL:0000542 ! lymphocyte
+is_a: CL:0001084 ! lymphocyte, human
+is_a: CL:0001086 ! lymphocyte, mouse
 created_by: tmeehan
 creation_date: 2011-08-29T10:08:02Z
 
@@ -17668,6 +17857,7 @@ namespace: cell
 def: "A non-terminally differentiated cell that originates from the neural crest and differentiates into an iridophore." [CL:CVS]
 comment: Derived from UBERON:0002342 neural crest.
 is_a: CL:0000055 ! non-terminally differentiated cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000333 ! migratory neural crest cell
 
 [Term]
@@ -17676,6 +17866,7 @@ name: xanthoblast
 namespace: cell
 def: "A non-terminally differentiated cell that differentiates into a xanthophore." [CL:CVS]
 is_a: CL:0000055 ! non-terminally differentiated cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000333 ! migratory neural crest cell
 
 [Term]
@@ -17684,6 +17875,7 @@ name: leucoblast
 namespace: cell
 def: "A non-terminally differentiated cell that originates from the neural crest and differentiates into a leucophore." [CL:CVS]
 is_a: CL:0000055 ! non-terminally differentiated cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000333 ! migratory neural crest cell
 
 [Term]
@@ -17692,6 +17884,7 @@ name: pigment erythroblast
 namespace: cell
 def: "A non-terminally differentiated cell that originates from the neural crest and differentiates into an erythrophore." [CL:CVS]
 is_a: CL:0000055 ! non-terminally differentiated cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000333 ! migratory neural crest cell
 
 [Term]
@@ -17700,6 +17893,7 @@ name: cyanoblast
 namespace: cell
 def: "A non-terminally differentiated cell that originates from the neural crest and differentiates into a cyanophore." [CL:CVS]
 is_a: CL:0000055 ! non-terminally differentiated cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000333 ! migratory neural crest cell
 
 [Term]
@@ -17916,6 +18110,7 @@ name: preodontoblast
 namespace: cell
 def: "Skeletogenic cell that has the potential to form an odontoblast, deposits predentine, and arises from a cranial neural crest cell." [GO_REF:0000034]
 is_a: CL:0000055 ! non-terminally differentiated cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000008 ! migratory cranial neural crest cell
 created_by: haendel
 creation_date: 2012-06-15T05:15:11Z
@@ -17987,6 +18182,7 @@ namespace: cell
 def: "Skeletogenic cell that has the potential to transform into an osteoblast, and develops from neural crest or mesodermal cells." [GO_REF:0000034]
 synonym: "osteoprogenitor cell" EXACT []
 is_a: CL:0000055 ! non-terminally differentiated cell
+is_a: CL:0011026 ! progenitor cell
 relationship: develops_from CL:0000222 ! mesodermal cell
 relationship: develops_from CL:0000333 ! migratory neural crest cell
 created_by: haendel
@@ -18756,6 +18952,14 @@ name: exhausted T cell
 synonym: "An effector T cell that displays impaired effector functions (e.g., rapid production of effector cytokines, cytotoxicity) and has limited proliferative potential." EXACT [PMID:26544946]
 synonym: "Tex cell" EXACT []
 is_a: CL:0000911 ! effector T cell
+created_by: http://orcid.org/0000-0001-5208-3432
+
+[Term]
+id: CL:0011026
+name: progenitor cell
+def: "A precursor cell that has a tendency to differentiate into a specific type of cell. They are descendants of stem cells, only they are more constrained in their differentiation potential or capacity for self-renewal, and are often more limited in both senses." [https://doi.org/10.1016/B978-0-12-409503-8.00002-0, ISBN:978-1-62808-994-3]
+is_a: CL:0011115 ! precursor cell
+relationship: develops_from CL:0000034 ! stem cell
 created_by: http://orcid.org/0000-0001-5208-3432
 
 [Term]

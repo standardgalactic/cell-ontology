@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: cl/releases/2020-05-21/cl-base.owl
+data-version: cl/releases/2020-08-01/cl-base.owl
 subsetdef: ubprop:upper_level "abstract upper-level terms not directly useful for analysis"
 synonymtypedef: HUMAN_PREFERRED "preferred term when talking about an instance of this class in Homo sapiens"
 synonymtypedef: LATIN "latin term"
@@ -15,12 +15,13 @@ property_value: http://purl.org/dc/elements/1.1/contributor "Melissa Haendel" xs
 property_value: http://purl.org/dc/elements/1.1/contributor "Nicole Vasilevsky" xsd:string
 property_value: http://purl.org/dc/elements/1.1/contributor "Terry Meehan" xsd:string
 property_value: http://purl.org/dc/elements/1.1/contributor "Yvonne Bradford" xsd:string
+property_value: http://purl.org/dc/elements/1.1/description "An ontology of cell types." xsd:string
 property_value: http://purl.org/dc/elements/1.1/license http://creativecommons.org/licenses/by/4.0/
 property_value: http://purl.org/dc/elements/1.1/title "Cell Ontology" xsd:string
+property_value: http://purl.org/dc/elements/1.1/type http://purl.obolibrary.org/obo/IAO_8000001 xsd:string
 
 [Term]
 id: CL:0000000
-name: cell
 namespace: cell
 def: "A material entity of anatomical origin (part of or deriving from an organism) that has as its parts a maximally connected cell compartment surrounded by a plasma membrane." [CARO:mah]
 comment: The definition of cell is intended to represent all cells, and thus a cell is defined as a material entity and not an anatomical structure, which implies that it is part of an organism (or the entirety of one).
@@ -66,7 +67,7 @@ comment: To accommodate unicellular organisms better, 'cell in vivo' has been re
 subset: ubprop:upper_level
 synonym: "cell in vivo" NARROW []
 xref: CARO:0000013
-is_a: CL:0000000 ! cell
+is_a: CL:0000000
 
 [Term]
 id: CL:0000004
@@ -96,7 +97,7 @@ namespace: cell
 synonym: "neuronal receptor cell (sensu Animalia)" EXACT []
 is_a: CL:0000197 ! receptor cell
 intersection_of: CL:0000197 ! receptor cell
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0050906
 
 [Term]
@@ -342,7 +343,7 @@ relationship: RO:0002202 CL:0000008 ! migratory cranial neural crest cell
 id: CL:0000028
 name: CNS neuron (sensu Nematoda and Protostomia)
 namespace: cell
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 relationship: BFO:0000050 UBERON:0001017
 relationship: RO:0002202 CL:0000338 ! neuroblast (sensu Nematoda and Protostomia)
 
@@ -350,8 +351,8 @@ relationship: RO:0002202 CL:0000338 ! neuroblast (sensu Nematoda and Protostomia
 id: CL:0000029
 name: neuron neural crest derived
 namespace: cell
-is_a: CL:0000540 {is_inferred="true"} ! neuron
-intersection_of: CL:0000540 ! neuron
+is_a: CL:0000540 {is_inferred="true"}
+intersection_of: CL:0000540
 intersection_of: RO:0002202 CL:0000333 ! migratory neural crest cell
 relationship: RO:0002202 CL:0002676 ! neural crest derived neuroblast
 
@@ -1252,7 +1253,7 @@ xref: BTO:0003811
 xref: FBbt:00005125
 xref: FMA:67313
 xref: WBbt:0005113
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000100
@@ -1277,14 +1278,14 @@ xref: FBbt:00005124
 xref: FMA:84649
 xref: WBbt:0005759
 is_a: CL:0000526 ! afferent neuron
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0050906
 
 [Term]
 id: CL:0000102
 name: polymodal neuron
 namespace: cell
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000103
@@ -1300,7 +1301,7 @@ name: multipolar neuron
 namespace: cell
 def: "Neuron with an axon and two or more dendrites." [FMA:67287, GOC:tfm]
 xref: FMA:67287
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000105
@@ -1308,7 +1309,7 @@ name: pseudounipolar neuron
 namespace: cell
 def: "Neuron with two neurites that are fused grossly when they protrude from the soma and bifurcate a short distance from the soma." [FMA:67305, GOC:tfm]
 xref: FMA:67305
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000106
@@ -1316,7 +1317,7 @@ name: unipolar neuron
 namespace: cell
 def: "Neuron with one neurite that extends from the cell body." [FMA:67278, GOC:nv]
 xref: FMA:67278
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000107
@@ -1324,8 +1325,8 @@ name: autonomic neuron
 namespace: cell
 def: "A neruon whose cell body is within an autonomic ganglion." [GOC:tfm]
 xref: FMA:80121
-is_a: CL:0000540 ! neuron
-intersection_of: CL:0000540 ! neuron
+is_a: CL:0000540
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:0002410
 
 [Term]
@@ -1336,20 +1337,20 @@ def: "A neuron that uses acetylcholine as a vesicular neurotransmitter." [GOC:tf
 xref: BTO:0004902
 xref: FMA:84796
 xref: WBbt:0006840
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0014055
 
 [Term]
 id: CL:0000109
 name: adrenergic neuron
 namespace: cell
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000110
 name: peptidergic neuron
 namespace: cell
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 relationship: RO:0002215 GO:0002790
 
 [Term]
@@ -1358,14 +1359,14 @@ name: peripheral neuron
 namespace: cell
 def: "A neuron that is part of nerve found outside the central nervous system." [ISBN:0721662544]
 xref: FMA:84664
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000112
 name: columnar neuron
 namespace: cell
 synonym: "columnar neuron" RELATED []
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000113
@@ -1405,13 +1406,13 @@ name: pioneer neuron
 namespace: cell
 def: "Pioneer neurons establish a pathway in the developing central nervous system and then undergo programmed cell death once the adult axons, which follow them, have made connections with the target site. Thus, they are a transient cell type involved in axon guidance." [GOC:cvs, GOC:tfm]
 xref: FBbt:00005128
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000117
 name: CNS neuron (sensu Vertebrata)
 namespace: cell
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 relationship: BFO:0000050 UBERON:0001017
 relationship: RO:0002202 CL:0000031 ! neuroblast (sensu Vertebrata)
 
@@ -2302,14 +2303,14 @@ name: mechanoreceptor cell
 namespace: cell
 def: "A cell specialized to transduce mechanical stimuli and relay that information centrally in the nervous system." [MESH:A08.800.550.700.500]
 synonym: "mechanoreceptor" RELATED [MP:0000972]
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0050974
 
 [Term]
 id: CL:0000200
 name: touch receptor cell
 namespace: cell
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0050976
 
 [Term]
@@ -2355,7 +2356,7 @@ id: CL:0000206
 name: chemoreceptor cell
 namespace: cell
 def: "A cell specialized to detect chemical substances and relay that information centrally in the nervous system. Chemoreceptors may monitor external stimuli, as in taste and olfaction, or internal stimuli, such as the concentrations of oxygen and carbon dioxide in the blood." [MESH:A08.800.550.700.120]
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0050907
 
 [Term]
@@ -2369,7 +2370,7 @@ synonym: "Schultze's cell" EXACT []
 xref: BTO:0004185
 xref: FMA:67860
 xref: Wikipedia:Olfactory_receptor_neuron
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0050911
 relationship: BFO:0000050 UBERON:0005725
 
@@ -2388,7 +2389,7 @@ synonym: "taste bud cell" EXACT []
 xref: FMA:67910
 is_a: CL:0000098 ! sensory epithelial cell
 is_a: CL:0002076 ! endo-epithelial cell
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0050912
 relationship: BFO:0000050 UBERON:0002025
 
@@ -2402,7 +2403,7 @@ xref: CALOHA:TS-0868
 xref: FBbt:00004211
 xref: FMA:86740
 is_a: CL:0000006 {is_inferred="true"} ! neuronal receptor cell
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0050962
 
 [Term]
@@ -3829,7 +3830,7 @@ is_a: CL:0000630 ! supportive cell
 id: CL:0000379
 name: sensory processing neuron
 namespace: cell
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000380
@@ -3845,7 +3846,7 @@ name: neurosecretory neuron
 namespace: cell
 xref: FBbt:00005130
 is_a: CL:0000527 ! efferent neuron
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0046879
 
 [Term]
@@ -5066,7 +5067,7 @@ namespace: cell
 def: "A neuron which conveys sensory information centrally from the periphery." [GOC:tfm, MESH:A08.663.650]
 synonym: "input neuron" EXACT []
 xref: FMA:87653
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000527
@@ -5074,7 +5075,7 @@ name: efferent neuron
 namespace: cell
 def: "A neuron which sends impulses peripherally to activate muscles or secretory cells." [MESH:A08.663.655]
 synonym: "output neuron" EXACT []
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000528
@@ -5082,7 +5083,7 @@ name: nitrergic neuron
 namespace: cell
 def: "A nerve cell where transmission is mediated by nitric oxide." [MESH:A08.663.748]
 xref: FMA:84792
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000529
@@ -5094,7 +5095,7 @@ is_a: CL:0000710 ! neurecto-epithelial cell
 id: CL:0000530
 name: primary neuron
 namespace: cell
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000531
@@ -5128,7 +5129,7 @@ is_a: CL:0000530 ! primary neuron
 id: CL:0000535
 name: secondary neuron
 namespace: cell
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000536
@@ -5163,7 +5164,6 @@ is_obsolete: true
 
 [Term]
 id: CL:0000540
-name: neuron
 namespace: cell
 def: "The basic cellular unit of nervous tissue. Each neuron consists of a body, an axon, and dendrites. Their purpose is to receive, conduct, and transmit impulses in the nervous system." [http://en.wikipedia.org/wiki/Neuron, MESH:A08.663, MESH:D009474]
 comment: These cells are also reportedly CD4-negative and CD200-positive. They are also capable of producing CD40L and IFN-gamma.
@@ -6230,8 +6230,8 @@ def: "A neuron that uses GABA as a vesicular neurotransmitter" [GOC:tfm]
 synonym: "GABA-ergic neuron" EXACT []
 xref: FMA:84788
 xref: WBbt:0005190
-is_a: CL:0000540 ! neuron
-intersection_of: CL:0000540 ! neuron
+is_a: CL:0000540
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0061534
 
 [Term]
@@ -6832,15 +6832,15 @@ is_a: CL:0000212 ! absorptive cell
 id: CL:0000678
 name: commissural neuron
 namespace: cell
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0000679
 name: glutamatergic neuron
 namespace: cell
 xref: WBbt:0006829
-is_a: CL:0000540 ! neuron
-intersection_of: CL:0000540 ! neuron
+is_a: CL:0000540
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0061535
 
 [Term]
@@ -7027,8 +7027,8 @@ synonym: "dopaminergic cell" EXACT []
 xref: BTO:0004032
 xref: FMA:84787
 xref: WBbt:0006746
-is_a: CL:0000540 ! neuron
-intersection_of: CL:0000540 ! neuron
+is_a: CL:0000540
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0061527
 
 [Term]
@@ -9000,8 +9000,8 @@ synonym: "5-hydroxytryptamine neuron" EXACT []
 synonym: "serotinergic neuron" RELATED []
 xref: FBbt:00005133
 xref: WBbt:0006837
-is_a: CL:0000540 ! neuron
-intersection_of: CL:0000540 ! neuron
+is_a: CL:0000540
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0060096
 
 [Term]
@@ -11633,7 +11633,7 @@ name: cell in vitro
 namespace: cell
 def: "A cell that is maintained or propagated in a controlled artificial environment for use in an investigation." [ReO:mhb]
 comment: 'In vitro', translating literally to 'in glass', typically refers to a controlled, often sterile, laboratory setting where cells or other specimens are placed by some agent for the purpose of studying or manipulating them as part of some research investigation. 'In vitro' is intended to contrast with 'native',which refers to cells or other biological entities that are found in a natural setting. It describes unicellular organisms removed from a natural environement and multicellular organism cells removed from an organism, or cells derived in culture from such displaced cells.
-is_a: CL:0000000 ! cell
+is_a: CL:0000000
 created_by: haendel
 creation_date: 2012-01-12T09:58:38Z
 
@@ -21085,8 +21085,8 @@ id: CL:0007011
 name: enteric neuron
 namespace: cell
 def: "Neuron that is part of the enteric nervous system." [CL:MAH]
-is_a: CL:0000540 ! neuron
-intersection_of: CL:0000540 ! neuron
+is_a: CL:0000540
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:0002005
 relationship: BFO:0000050 UBERON:0002005
 relationship: RO:0002202 CL:0002607 ! migratory enteric neural crest cell
@@ -21375,7 +21375,7 @@ relationship: RO:0002203 CL:0008017 ! adult skeletal muscle myoblast
 [Term]
 id: CL:0008021
 name: anterior lateral line ganglion neuron
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:2001391
 
 [Term]
@@ -21405,7 +21405,7 @@ intersection_of: BFO:0000050 UBERON:0001264
 id: CL:0008025
 name: noradrenergic neuron
 def: "A neuron that release noradrenaline (noriphinephrine) as a neurotransmitter." [GOC:dos]
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0061533
 
 [Term]
@@ -21427,7 +21427,7 @@ creation_date: 2017-06-29T11:05:22Z
 [Term]
 id: CL:0008028
 name: visual system neuron
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: RO:0002216 GO:0007601
 created_by: dos
 creation_date: 2017-07-09T19:12:36Z
@@ -21645,7 +21645,7 @@ intersection_of: RO:0002100 UBERON:0000956
 id: CL:0010012
 name: cerebral cortex neuron
 def: "A neuron that is part_of a cerebral cortex." []
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:0000956
 
 [Term]
@@ -21691,7 +21691,7 @@ intersection_of: RO:0002203 CL:0000746 ! cardiac muscle cell
 [Term]
 id: CL:0010022
 name: cardiac neuron
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:0000948
 
 [Term]
@@ -21909,10 +21909,19 @@ is_a: CL:0000911 ! effector T cell
 created_by: http://orcid.org/0000-0001-5208-3432
 
 [Term]
+id: CL:0011026
+name: progenitor cell
+def: "A precursor cell that has a tendency to differentiate into a specific type of cell. They are descendants of stem cells, only they are more constrained in their differentiation potential or capacity for self-renewal, and are often more limited in both senses." [https://doi.org/10.1016/B978-0-12-409503-8.00002-0, ISBN:978-1-62808-994-3]
+is_a: CL:0011115 ! precursor cell
+intersection_of: CL:0011115 ! precursor cell
+intersection_of: RO:0002202 CL:0000034 ! stem cell
+created_by: http://orcid.org/0000-0001-5208-3432
+
+[Term]
 id: CL:0011100
 name: galanergic neuron
 def: "Neuron that secretes the neurotransmitter galanin." [GOC:NV, PMID:23159249, ZFIN:CVS, ZFIN:YB]
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0011101
@@ -21981,16 +21990,16 @@ id: CL:0011109
 name: hypocretin-secreting neuron
 def: "A neuron that releases hypocretin as a neurotransmitter." [GOC:NV, PMID:23848055]
 synonym: "orexin" EXACT []
-is_a: CL:0000540 ! neuron
-intersection_of: CL:0000540 ! neuron
+is_a: CL:0000540
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0061585
 
 [Term]
 id: CL:0011110
 name: histaminergic neuron
 def: "Neuron that secretes histamine." [GOC:NV, PMID:22677810]
-is_a: CL:0000540 ! neuron
-intersection_of: CL:0000540 ! neuron
+is_a: CL:0000540
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0061538
 
 [Term]
@@ -21999,22 +22008,22 @@ name: gonadotropin releasing neuron
 def: "Neuroendocrine cells that are born in the nasal placode during embryonic development and migrate through the nose and forebrain to the hypothalamus, where they regulate reproduction." [GOC:NV, PMID:21828096]
 synonym: "GnRH neuron" EXACT []
 synonym: "GnRH-secreting neuron" EXACT []
-is_a: CL:0000540 ! neuron
-intersection_of: CL:0000540 ! neuron
+is_a: CL:0000540
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0032274
 
 [Term]
 id: CL:0011112
 name: magnocellular neurosecretory cell
 def: "Neurons part of the hypothalamic supraoptic and paraventricular nuclei that secrete the hormones, oxytocin and vasopressin into the systemic circulation from the posterior pituitary gland." [GOC:NV, PMID:10711808]
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 
 [Term]
 id: CL:0011113
 name: spiral ganglion neuron
 def: "Neuron found in the spriral ganglion." [GOC:NV]
-is_a: CL:0000540 ! neuron
-intersection_of: CL:0000540 ! neuron
+is_a: CL:0000540
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:0000395
 
 [Term]
@@ -22122,7 +22131,7 @@ property_value: http://purl.org/dc/elements/1.1/date 2020-05-07T18:14:52Z xsd:da
 [Term]
 id: CL:1000001
 name: retrotrapezoid nucleus neuron
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:0009918
 
 [Term]
@@ -22251,7 +22260,7 @@ intersection_of: BFO:0000050 UBERON:2000425
 [Term]
 id: CL:1000245
 name: posterior lateral line ganglion neuron
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:2001314
 
 [Term]
@@ -24248,7 +24257,7 @@ name: kidney nerve cell
 namespace: cell
 xref: KUPO:0001015
 is_a: CL:1000500 ! kidney interstitial cell
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:0002113
 
 [Term]
@@ -25299,7 +25308,7 @@ def: "The inhibitory projection neurons located in the striatum that integrate g
 synonym: "medium-sized densely spiny neuron" RELATED [BTO:0004778]
 synonym: "striatal medium spiny neuron" EXACT [GO:0021773]
 xref: BTO:0004778
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 relationship: BFO:0000050 UBERON:0000369
 
 [Term]
@@ -25315,7 +25324,7 @@ id: CL:1001503
 name: olfactory bulb tufted cell
 namespace: cl
 def: "The principal glutaminergic neuron located in the outer third of the external plexiform layer of the olfactory bulb; a single short primary dendrite traverses the outer external plexiform layer and terminates within an olfactory glomerulus in a tuft of branches, where it receives the input from olfactory receptor neuron axon terminals; axons of the tufted cells transfer information to a number of areas in the brain, including the piriform cortex, entorhinal cortex, olfactory tubercle, and amygdala." [MP:0009955]
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 relationship: BFO:0000050 UBERON:0005376
 
 [Term]
@@ -25325,7 +25334,7 @@ namespace: cl
 def: "The secretory neurons of the paraventricular nucleus that synthesize and secrete vasopressin, corticotropin-releasing factor (CRF) and thyrotropin-releasing hormone (TRH) into blood vessels in the hypothalamo-pituitary portal system." [MP:0010125]
 synonym: "parvocellular neuron" EXACT []
 synonym: "parvocellular neurosecretory neuron" EXACT []
-is_a: CL:0000540 ! neuron
+is_a: CL:0000540
 relationship: BFO:0000050 UBERON:0001930
 relationship: RO:0002215 GO:0030103
 
@@ -25334,8 +25343,8 @@ id: CL:1001509
 name: glycinergic neuron
 namespace: cl
 def: "The neurons that utilize glycine as a neurotransmitter." [MP:0010385]
-is_a: CL:0000540 ! neuron
-intersection_of: CL:0000540 ! neuron
+is_a: CL:0000540
+intersection_of: CL:0000540
 intersection_of: RO:0002215 GO:0061537
 
 [Term]
@@ -25526,7 +25535,7 @@ synonym: "lateral ventricle neural cell" RELATED [CALOHA:TS-1261]
 synonym: "lateral ventricle neuronal cell" RELATED [CALOHA:TS-1261]
 synonym: "lateral ventricle neuronal cells" RELATED [CALOHA:TS-1261]
 xref: CALOHA:TS-1261
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:0002285
 
 [Term]
@@ -25778,7 +25787,7 @@ def: "Neuron of the cerebellum." [NPX:PDR]
 synonym: "cerebellum neuron" RELATED [CALOHA:TS-2359]
 xref: CALOHA:TS-2359
 xref: FMA:84665
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:0002037
 
 [Term]
@@ -26022,7 +26031,7 @@ id: CL:2000024
 name: spinal cord medial motor column neuron
 namespace: cell
 def: "Any neuron that is part of a spinal cord medial motor column." [GOC:TermGenie]
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:0004059
 created_by: TermGenie
 creation_date: 2014-06-25T00:23:43Z
@@ -26071,7 +26080,7 @@ id: CL:2000029
 name: central nervous system neuron
 namespace: cell
 def: "Any neuron that is part of a central nervous system." [GOC:TermGenie]
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:0001017
 created_by: TermGenie
 creation_date: 2014-06-25T01:17:43Z
@@ -26091,7 +26100,7 @@ id: CL:2000031
 name: lateral line ganglion neuron
 namespace: cell
 def: "Any neuron that is part of a lateral line ganglion." [GOC:TermGenie]
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:2000120
 created_by: TermGenie
 creation_date: 2014-06-25T01:17:57Z
@@ -26101,7 +26110,7 @@ id: CL:2000032
 name: peripheral nervous system neuron
 namespace: cell
 def: "Any neuron that is part of a peripheral nervous system." [GOC:TermGenie]
-intersection_of: CL:0000540 ! neuron
+intersection_of: CL:0000540
 intersection_of: BFO:0000050 UBERON:0000010
 created_by: TermGenie
 creation_date: 2014-06-25T02:28:17Z
@@ -26924,6 +26933,10 @@ def: "Heterochromatin that is arranged in a carthwheel pattern." [GOC:tfm]
 is_a: GO:0000792
 created_by: tmeehan
 creation_date: 2009-12-28T04:28:35Z
+
+[Term]
+id: GO:0005623
+comment: GO is planning to obsolete this term in favor of the CL 'cell' term.
 
 [Term]
 id: GO:0032634
