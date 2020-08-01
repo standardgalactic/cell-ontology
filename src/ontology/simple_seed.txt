@@ -2425,12 +2425,15 @@ http://purl.org/dc/elements/1.1/creator
 http://purl.org/dc/elements/1.1/date
 http://purl.org/dc/elements/1.1/license
 http://purl.org/dc/elements/1.1/title
+http://purl.org/dc/terms/creator
+http://purl.org/dc/terms/date
 http://semanticscience.org/resource/SIO_000658
 http://www.geneontology.org/formats/oboInOwl#SubsetProperty
 http://www.geneontology.org/formats/oboInOwl#SynonymTypeProperty
 http://www.geneontology.org/formats/oboInOwl#consider
 http://www.geneontology.org/formats/oboInOwl#created_by
 http://www.geneontology.org/formats/oboInOwl#creation_date
+http://www.geneontology.org/formats/oboInOwl#database_cross_reference
 http://www.geneontology.org/formats/oboInOwl#date
 http://www.geneontology.org/formats/oboInOwl#editor
 http://www.geneontology.org/formats/oboInOwl#evidence
@@ -2442,6 +2445,9 @@ http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym
 http://www.geneontology.org/formats/oboInOwl#hasOBONamespace
 http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym
 http://www.geneontology.org/formats/oboInOwl#hasSynonymType
+http://www.geneontology.org/formats/oboInOwl#has_broad_synonym
+http://www.geneontology.org/formats/oboInOwl#has_exact_synonym
+http://www.geneontology.org/formats/oboInOwl#has_related_synonym
 http://www.geneontology.org/formats/oboInOwl#id
 http://www.geneontology.org/formats/oboInOwl#inSubset
 http://www.geneontology.org/formats/oboInOwl#is_class_level

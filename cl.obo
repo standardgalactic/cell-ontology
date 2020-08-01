@@ -10241,7 +10241,7 @@ property_value: http://purl.org/dc/terms/date 2017-01-30T20:42:44Z xsd:string
 id: CL:0001068
 name: ILC1
 namespace: cell
-def: "A group 1 innate lymphoid cell that is non-cytotoxic." []
+def: "A group 1 innate lymphoid cell that is non-cytotoxic." [GOC:add, GOC:dsd, PMID:23292121, PMID:23348417]
 is_a: CL:0001067 ! group 1 innate lymphoid cell
 property_value: http://purl.org/dc/elements/1.1/creator http://orcid.org/0000-0001-9990-8331
 property_value: http://purl.org/dc/elements/1.1/date 2017-01-30T20:54:12Z xsd:dateTime
@@ -10281,7 +10281,7 @@ is_a: CL:0000136 ! fat cell
 id: CL:0001071
 name: group 3 innate lymphoid cell
 namespace: cell
-def: "An innate lymphoid cell that constituitively expresses RORgt and is capable of expressing IL17A and/or IL-22." [GOC:add, GOC:dsd, PMID:23292121, PMID:23348417]
+def: "An innate lymphoid cell that constituitively expresses RORgt and is capable of expressing IL17A and/or IL-22." []
 synonym: "ILC3" EXACT []
 is_a: CL:0001065 ! innate lymphoid cell
 property_value: has_exact_synonym "ILC3" xsd:string
@@ -14415,7 +14415,7 @@ creation_date: 2010-09-20T04:00:02Z
 id: CL:0002344
 name: CD56-negative, CD161-positive immature natural killer cell, human
 namespace: cell
-def: "A natural killer cell that is developmentally immature, has the phenotype CD34-negative, CD56-negative, CD117-positive, CD122-positive,and CD161-positive." []
+def: "A natural killer cell that is developmentally immature, has the phenotype CD34-negative, CD56-negative, CD117-positive, CD122-positive,and CD161-positive." [GO_REF:0000031, GOC:add, ISBN:0781735149, PMID:12457618]
 comment: Human markers; killer cell immunoglobulin-like receptor 2DL1 is used as a representative example (PRO at this time lacks a KIR superfamily).
 synonym: "p-NK" RELATED [PMID:12457618]
 is_a: CL:0000823 ! immature natural killer cell
