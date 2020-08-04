@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: cl/releases/2020-08-01/cl-base.owl
+data-version: cl/releases/2020-08-04/cl-base.owl
 subsetdef: ubprop:upper_level "abstract upper-level terms not directly useful for analysis"
 synonymtypedef: HUMAN_PREFERRED "preferred term when talking about an instance of this class in Homo sapiens"
 synonymtypedef: LATIN "latin term"
@@ -16,12 +16,13 @@ property_value: http://purl.org/dc/elements/1.1/contributor "Nicole Vasilevsky" 
 property_value: http://purl.org/dc/elements/1.1/contributor "Terry Meehan" xsd:string
 property_value: http://purl.org/dc/elements/1.1/contributor "Yvonne Bradford" xsd:string
 property_value: http://purl.org/dc/elements/1.1/description "An ontology of cell types." xsd:string
-property_value: http://purl.org/dc/elements/1.1/license http://creativecommons.org/licenses/by/4.0/
 property_value: http://purl.org/dc/elements/1.1/title "Cell Ontology" xsd:string
 property_value: http://purl.org/dc/elements/1.1/type http://purl.obolibrary.org/obo/IAO_8000001 xsd:string
+property_value: http://purl.org/dc/terms/license http://creativecommons.org/licenses/by/4.0/
 
 [Term]
 id: CL:0000000
+name: cell
 namespace: cell
 def: "A material entity of anatomical origin (part of or deriving from an organism) that has as its parts a maximally connected cell compartment surrounded by a plasma membrane." [CARO:mah]
 comment: The definition of cell is intended to represent all cells, and thus a cell is defined as a material entity and not an anatomical structure, which implies that it is part of an organism (or the entirety of one).
@@ -33,7 +34,6 @@ xref: KUPO:0000002
 xref: VHOG:0001533
 xref: WBbt:0004017
 xref: XAO:0003012
-equivalent_to: GO:0005623
 
 [Term]
 id: CL:0000001
@@ -67,7 +67,7 @@ comment: To accommodate unicellular organisms better, 'cell in vivo' has been re
 subset: ubprop:upper_level
 synonym: "cell in vivo" NARROW []
 xref: CARO:0000013
-is_a: CL:0000000
+is_a: CL:0000000 ! cell
 
 [Term]
 id: CL:0000004
@@ -97,7 +97,7 @@ namespace: cell
 synonym: "neuronal receptor cell (sensu Animalia)" EXACT []
 is_a: CL:0000197 ! receptor cell
 intersection_of: CL:0000197 ! receptor cell
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0050906
 
 [Term]
@@ -343,7 +343,7 @@ relationship: RO:0002202 CL:0000008 ! migratory cranial neural crest cell
 id: CL:0000028
 name: CNS neuron (sensu Nematoda and Protostomia)
 namespace: cell
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 relationship: BFO:0000050 UBERON:0001017
 relationship: RO:0002202 CL:0000338 ! neuroblast (sensu Nematoda and Protostomia)
 
@@ -351,8 +351,8 @@ relationship: RO:0002202 CL:0000338 ! neuroblast (sensu Nematoda and Protostomia
 id: CL:0000029
 name: neuron neural crest derived
 namespace: cell
-is_a: CL:0000540 {is_inferred="true"}
-intersection_of: CL:0000540
+is_a: CL:0000540 {is_inferred="true"} ! neuron
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002202 CL:0000333 ! migratory neural crest cell
 relationship: RO:0002202 CL:0002676 ! neural crest derived neuroblast
 
@@ -1027,7 +1027,6 @@ xref: VHOG:0001479
 is_a: CL:0000542 {is_inferred="true"} ! lymphocyte
 intersection_of: CL:0000542 ! lymphocyte
 intersection_of: RO:0002215 GO:0002456
-disjoint_from: CL:0000623 ! natural killer cell
 disjoint_from: CL:0000945 ! lymphocyte of B lineage
 relationship: RO:0002202 CL:0000827 ! pro-T cell
 
@@ -1253,7 +1252,7 @@ xref: BTO:0003811
 xref: FBbt:00005125
 xref: FMA:67313
 xref: WBbt:0005113
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000100
@@ -1278,14 +1277,14 @@ xref: FBbt:00005124
 xref: FMA:84649
 xref: WBbt:0005759
 is_a: CL:0000526 ! afferent neuron
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0050906
 
 [Term]
 id: CL:0000102
 name: polymodal neuron
 namespace: cell
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000103
@@ -1301,7 +1300,7 @@ name: multipolar neuron
 namespace: cell
 def: "Neuron with an axon and two or more dendrites." [FMA:67287, GOC:tfm]
 xref: FMA:67287
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000105
@@ -1309,7 +1308,7 @@ name: pseudounipolar neuron
 namespace: cell
 def: "Neuron with two neurites that are fused grossly when they protrude from the soma and bifurcate a short distance from the soma." [FMA:67305, GOC:tfm]
 xref: FMA:67305
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000106
@@ -1317,7 +1316,7 @@ name: unipolar neuron
 namespace: cell
 def: "Neuron with one neurite that extends from the cell body." [FMA:67278, GOC:nv]
 xref: FMA:67278
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000107
@@ -1325,8 +1324,8 @@ name: autonomic neuron
 namespace: cell
 def: "A neruon whose cell body is within an autonomic ganglion." [GOC:tfm]
 xref: FMA:80121
-is_a: CL:0000540
-intersection_of: CL:0000540
+is_a: CL:0000540 ! neuron
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:0002410
 
 [Term]
@@ -1337,20 +1336,20 @@ def: "A neuron that uses acetylcholine as a vesicular neurotransmitter." [GOC:tf
 xref: BTO:0004902
 xref: FMA:84796
 xref: WBbt:0006840
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0014055
 
 [Term]
 id: CL:0000109
 name: adrenergic neuron
 namespace: cell
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000110
 name: peptidergic neuron
 namespace: cell
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 relationship: RO:0002215 GO:0002790
 
 [Term]
@@ -1359,14 +1358,14 @@ name: peripheral neuron
 namespace: cell
 def: "A neuron that is part of nerve found outside the central nervous system." [ISBN:0721662544]
 xref: FMA:84664
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000112
 name: columnar neuron
 namespace: cell
 synonym: "columnar neuron" RELATED []
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000113
@@ -1406,13 +1405,13 @@ name: pioneer neuron
 namespace: cell
 def: "Pioneer neurons establish a pathway in the developing central nervous system and then undergo programmed cell death once the adult axons, which follow them, have made connections with the target site. Thus, they are a transient cell type involved in axon guidance." [GOC:cvs, GOC:tfm]
 xref: FBbt:00005128
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000117
 name: CNS neuron (sensu Vertebrata)
 namespace: cell
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 relationship: BFO:0000050 UBERON:0001017
 relationship: RO:0002202 CL:0000031 ! neuroblast (sensu Vertebrata)
 
@@ -2303,14 +2302,14 @@ name: mechanoreceptor cell
 namespace: cell
 def: "A cell specialized to transduce mechanical stimuli and relay that information centrally in the nervous system." [MESH:A08.800.550.700.500]
 synonym: "mechanoreceptor" RELATED [MP:0000972]
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0050974
 
 [Term]
 id: CL:0000200
 name: touch receptor cell
 namespace: cell
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0050976
 
 [Term]
@@ -2356,7 +2355,7 @@ id: CL:0000206
 name: chemoreceptor cell
 namespace: cell
 def: "A cell specialized to detect chemical substances and relay that information centrally in the nervous system. Chemoreceptors may monitor external stimuli, as in taste and olfaction, or internal stimuli, such as the concentrations of oxygen and carbon dioxide in the blood." [MESH:A08.800.550.700.120]
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0050907
 
 [Term]
@@ -2370,7 +2369,7 @@ synonym: "Schultze's cell" EXACT []
 xref: BTO:0004185
 xref: FMA:67860
 xref: Wikipedia:Olfactory_receptor_neuron
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0050911
 relationship: BFO:0000050 UBERON:0005725
 
@@ -2389,7 +2388,7 @@ synonym: "taste bud cell" EXACT []
 xref: FMA:67910
 is_a: CL:0000098 ! sensory epithelial cell
 is_a: CL:0002076 ! endo-epithelial cell
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0050912
 relationship: BFO:0000050 UBERON:0002025
 
@@ -2403,7 +2402,7 @@ xref: CALOHA:TS-0868
 xref: FBbt:00004211
 xref: FMA:86740
 is_a: CL:0000006 {is_inferred="true"} ! neuronal receptor cell
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0050962
 
 [Term]
@@ -3830,7 +3829,7 @@ is_a: CL:0000630 ! supportive cell
 id: CL:0000379
 name: sensory processing neuron
 namespace: cell
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000380
@@ -3846,7 +3845,7 @@ name: neurosecretory neuron
 namespace: cell
 xref: FBbt:00005130
 is_a: CL:0000527 ! efferent neuron
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0046879
 
 [Term]
@@ -5067,7 +5066,7 @@ namespace: cell
 def: "A neuron which conveys sensory information centrally from the periphery." [GOC:tfm, MESH:A08.663.650]
 synonym: "input neuron" EXACT []
 xref: FMA:87653
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000527
@@ -5075,7 +5074,7 @@ name: efferent neuron
 namespace: cell
 def: "A neuron which sends impulses peripherally to activate muscles or secretory cells." [MESH:A08.663.655]
 synonym: "output neuron" EXACT []
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000528
@@ -5083,7 +5082,7 @@ name: nitrergic neuron
 namespace: cell
 def: "A nerve cell where transmission is mediated by nitric oxide." [MESH:A08.663.748]
 xref: FMA:84792
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000529
@@ -5095,7 +5094,7 @@ is_a: CL:0000710 ! neurecto-epithelial cell
 id: CL:0000530
 name: primary neuron
 namespace: cell
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000531
@@ -5129,7 +5128,7 @@ is_a: CL:0000530 ! primary neuron
 id: CL:0000535
 name: secondary neuron
 namespace: cell
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000536
@@ -5164,6 +5163,7 @@ is_obsolete: true
 
 [Term]
 id: CL:0000540
+name: neuron
 namespace: cell
 def: "The basic cellular unit of nervous tissue. Each neuron consists of a body, an axon, and dendrites. Their purpose is to receive, conduct, and transmit impulses in the nervous system." [http://en.wikipedia.org/wiki/Neuron, MESH:A08.663, MESH:D009474]
 comment: These cells are also reportedly CD4-negative and CD200-positive. They are also capable of producing CD40L and IFN-gamma.
@@ -6230,8 +6230,8 @@ def: "A neuron that uses GABA as a vesicular neurotransmitter" [GOC:tfm]
 synonym: "GABA-ergic neuron" EXACT []
 xref: FMA:84788
 xref: WBbt:0005190
-is_a: CL:0000540
-intersection_of: CL:0000540
+is_a: CL:0000540 ! neuron
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0061534
 
 [Term]
@@ -6279,18 +6279,7 @@ relationship: BFO:0000050 UBERON:0009842
 id: CL:0000623
 name: natural killer cell
 namespace: cell
-def: "A lymphocyte that can spontaneously kill a variety of target cells without prior antigenic activation via germline encoded activation receptors and also regulate immune responses via cytokine release and direct contact with other cells." [GOC:add, ISBN:0781735149, PMID:15771571]
 def: "A lymphocyte that can spontaneously kill a variety of target cells without prior antigenic activation via germline encoded activation receptors and also regulate immune responses via cytokine release and direct contact with other cells." [] {database_cross_reference="ISBN:0781735149", database_cross_reference="GOC:add", database_cross_reference="PMID:15771571"}
-synonym: "large granular lymphocyte" BROAD []
-synonym: "NK cell" EXACT []
-synonym: "null cell" BROAD []
-xref: BTO:0000914
-xref: BTO:0004716
-xref: CALOHA:TS-0664
-xref: FMA:63147
-xref: FMA:83601
-xref: VHOG:0001697
-is_a: CL:0001067 {is_inferred="true"} ! group 1 innate lymphoid cell
 intersection_of: CL:0001067 ! group 1 innate lymphoid cell
 intersection_of: lacks_plasma_membrane_part PR:000001002
 intersection_of: lacks_plasma_membrane_part PR:000001020
@@ -6842,15 +6831,15 @@ is_a: CL:0000212 ! absorptive cell
 id: CL:0000678
 name: commissural neuron
 namespace: cell
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0000679
 name: glutamatergic neuron
 namespace: cell
 xref: WBbt:0006829
-is_a: CL:0000540
-intersection_of: CL:0000540
+is_a: CL:0000540 ! neuron
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0061535
 
 [Term]
@@ -7037,8 +7026,8 @@ synonym: "dopaminergic cell" EXACT []
 xref: BTO:0004032
 xref: FMA:84787
 xref: WBbt:0006746
-is_a: CL:0000540
-intersection_of: CL:0000540
+is_a: CL:0000540 ! neuron
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0061527
 
 [Term]
@@ -8391,7 +8380,7 @@ xref: BTO:0003435
 is_a: CL:0002419 {is_inferred="true"} ! mature T cell
 intersection_of: CL:0002419 ! mature T cell
 intersection_of: has_completed GO:0002286
-intersection_of: has_completed GO:0043379 ! memory T cell differentiation
+intersection_of: has_completed GO:0043379
 intersection_of: RO:0000053 PATO:0001603
 disjoint_from: CL:0000898 ! naive T cell
 
@@ -8575,11 +8564,7 @@ id: CL:0000823
 name: immature natural killer cell
 namespace: cell
 def: "A natural killer cell that is developmentally immature and expresses natural killer cell receptors (NKR)." [] {database_cross_reference="PMID:12457618", database_cross_reference="ISBN:0781735149", database_cross_reference="GOC:add", database_cross_reference="GO_REF:0000031"}
-def: "A natural killer cell that is developmentally immature and expresses natural killer cell receptors (NKR)." [GO_REF:0000031, GOC:add, ISBN:0781735149, PMID:12457618]
 comment: In mouse the NKR are Ly49 molecules and in human these cells express KIR molecules.
-synonym: "immature NK cell" EXACT []
-synonym: "p-NK" RELATED [PMID:12457618]
-is_a: CL:0000623 {is_inferred="true"} ! natural killer cell
 intersection_of: CL:0000623 ! natural killer cell
 intersection_of: RO:0000053 PATO:0001501
 disjoint_from: CL:0000824 ! mature natural killer cell
@@ -8592,14 +8577,8 @@ property_value: has_related_synonym "p-NK" xsd:string {database_cross_reference=
 id: CL:0000824
 name: mature natural killer cell
 namespace: cell
-def: "A natural killer cell that is developmentally mature and expresses a variety of inhibitory and activating receptors that recognize MHC class I and other stress related molecules." [GO_REF:0000031, GOC:add, ISBN:0781735149, PMID:14685782]
 def: "A natural killer cell that is developmentally mature and expresses a variety of inhibitory and activating receptors that recognize MHC class I and other stress related molecules." [] {database_cross_reference="ISBN:0781735149", database_cross_reference="GOC:add", database_cross_reference="PMID:14685782", database_cross_reference="GO_REF:0000031"}
-synonym: "LAK cell" BROAD [PMID:14685782]
-synonym: "lymphokine activated killer cell" BROAD [PMID:14685782]
-synonym: "mature NK cell" EXACT []
 is_a: CL:0000623 ! natural killer cell
-disjoint_from: CL:0002338 ! CD56-positive, CD161-positive immature natural killer cell, human
-disjoint_from: CL:0002344 ! CD56-negative, CD161-positive immature natural killer cell
 relationship: RO:0002202 CL:0000823 ! immature natural killer cell
 property_value: has_broad_synonym "LAK cell" xsd:string {database_cross_reference="PMID:14685782"}
 property_value: has_broad_synonym "lymphokine activated killer cell" xsd:string {database_cross_reference="PMID:14685782"}
@@ -9017,8 +8996,8 @@ synonym: "5-hydroxytryptamine neuron" EXACT []
 synonym: "serotinergic neuron" RELATED []
 xref: FBbt:00005133
 xref: WBbt:0006837
-is_a: CL:0000540
-intersection_of: CL:0000540
+is_a: CL:0000540 ! neuron
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0060096
 
 [Term]
@@ -9576,7 +9555,7 @@ synonym: "T4.Mem.Sp" RELATED []
 is_a: CL:0000624 ! CD4-positive, alpha-beta T cell
 intersection_of: CL:0000624 ! CD4-positive, alpha-beta T cell
 intersection_of: has_completed GO:0002286
-intersection_of: has_completed GO:0043379 ! memory T cell differentiation
+intersection_of: has_completed GO:0043379
 intersection_of: RO:0000053 PATO:0001603
 property_value: http://purl.org/dc/elements/1.1/creator https://orcid.org/0000-0001-9990-8331 xsd:string
 
@@ -9802,7 +9781,7 @@ synonym: "CD8-positive, alpha-beta memory T-lymphocyte" EXACT []
 synonym: "T.8Mem.Sp" RELATED []
 intersection_of: CL:0000625 ! CD8-positive, alpha-beta T cell
 intersection_of: has_completed GO:0002286
-intersection_of: has_completed GO:0043379 ! memory T cell differentiation
+intersection_of: has_completed GO:0043379
 intersection_of: RO:0000053 PATO:0001603
 property_value: http://purl.org/dc/elements/1.1/creator https://orcid.org/0000-0001-9990-8331 xsd:string
 
@@ -9833,7 +9812,7 @@ is_a: CL:0002419 {is_inferred="true"} ! mature T cell
 intersection_of: CL:0002419 ! mature T cell
 intersection_of: has_completed GO:0030217
 intersection_of: has_completed GO:0045058
-intersection_of: RO:0000053 PATO:0045026 ! normal life span
+intersection_of: RO:0000053 PATO:0045026
 
 [Term]
 id: CL:0000912
@@ -10266,39 +10245,27 @@ relationship: RO:0002202 CL:0002035 ! Slamf1-negative multipotent progenitor cel
 id: CL:0000937
 name: pre-natural killer cell
 namespace: cell
-def: "Cell committed to natural killer cell lineage that has the phenotype CD122-positive, CD34-positive, and CD117-positive. This cell type lacks expression of natural killer receptor proteins." [GO_REF:0000031, GOC:add, GOC:dsd, GOC:pam, GOC:tfm, PMID:16551251, PMID:17100874]
 def: "Cell committed to natural killer cell lineage that has the phenotype CD122-positive, CD34-positive, and CD117-positive. This cell type lacks expression of natural killer receptor proteins." [] {database_cross_reference="GOC:tfm", database_cross_reference="PMID:17100874", database_cross_reference="GOC:dsd", database_cross_reference="GOC:add", database_cross_reference="PMID:16551251", database_cross_reference="GOC:pam", database_cross_reference="GO_REF:0000031"}
 comment: These cells are also reportedly CD7-low, CD10-negative, CD45RA-positive, alpha-4-beta-7 integrin-high.
-synonym: "pre-NK cell" EXACT []
-is_a: CL:0000623 {is_inferred="true"} ! natural killer cell
 intersection_of: CL:0000623 ! natural killer cell
 intersection_of: RO:0002104 PR:000001003
 intersection_of: RO:0002104 PR:000001381
 intersection_of: RO:0002104 PR:000002065
-disjoint_from: CL:0002338 ! CD56-positive, CD161-positive immature natural killer cell, human
-disjoint_from: CL:0002344 ! CD56-negative, CD161-positive immature natural killer cell
 property_value: has_exact_synonym "pre-NK cell" xsd:string
 
 [Term]
 id: CL:0000938
-name: CD16-negative, CD56-bright natural killer cell
 name: CD16-negative, CD56-bright natural killer cell, human
 namespace: cell
-def: "NK cell that has the phenotype CD56-bright, CD16-negative, and CD84-positive with the function to secrete interferon-gamma but is not cytotoxic." [GO_REF:0000031, GOC:add, GOC:pam, GOC:tfm, PMID:19796267, PMID:22343568]
 def: "NK cell that has the phenotype CD56-bright, CD16-negative, and CD84-positive with the function to secrete interferon-gamma but is not cytotoxic." [] {database_cross_reference="PMID:19796267", database_cross_reference="GOC:tfm", database_cross_reference="PMID:22343568", database_cross_reference="GOC:add", database_cross_reference="GOC:pam", database_cross_reference="GO_REF:0000031"}
 comment: This cell type is compatible with the HIPC Lyoplate markers for 'CD16-CD56bright NK cell'. Markers are associated with human cell types.
-synonym: "CD16-CD56bright NK cell" EXACT [PMID:22343568]
-synonym: "CD16-negative, CD56-bright NK cell" EXACT []
-synonym: "CD56-bright cytokine secreting natural killer cell" EXACT []
-synonym: "CD56-bright cytokine secreting NK cell" EXACT []
-is_a: CL:0000824 {is_inferred="true"} ! mature natural killer cell
 intersection_of: CL:0000824 ! mature natural killer cell
 intersection_of: has_high_plasma_membrane_amount PR:000001024
 intersection_of: lacks_plasma_membrane_part PR:000001483
 intersection_of: lacks_plasma_membrane_part PR:000002015
 intersection_of: RO:0002104 PR:000001319
+intersection_of: RO:0002162 NCBITaxon:9606
 intersection_of: RO:0002215 GO:0032609
-disjoint_from: CL:0000939 ! CD16-positive, CD56-dim natural killer cell
 property_value: has_exact_synonym "CD16-CD56bright NK cell" xsd:string {database_cross_reference="PMID:22343568"}
 property_value: has_exact_synonym "CD16-negative, CD56-bright NK cell" xsd:string
 property_value: has_exact_synonym "CD56-bright cytokine secreting natural killer cell" xsd:string
@@ -10306,25 +10273,15 @@ property_value: has_exact_synonym "CD56-bright cytokine secreting NK cell" xsd:s
 
 [Term]
 id: CL:0000939
-name: CD16-positive, CD56-dim natural killer cell
 name: CD16-positive, CD56-dim natural killer cell, human
 namespace: cell
 def: "A mature natural killer cell that has the phenotype CD56-low, CD16-positive and which is capable of cytotoxicity and cytokine production." [] {database_cross_reference="PMID:19796267", database_cross_reference="PMID:22343568", database_cross_reference="GOC:add", database_cross_reference="GOC:pam", database_cross_reference="GO_REF:0000031"}
-def: "A mature natural killer cell that has the phenotype CD56-low, CD16-positive and which is capable of cytotoxicity and cytokine production." [GO_REF:0000031, GOC:add, GOC:pam, PMID:19796267, PMID:22343568]
 comment: This cell type is compatible with the HIPC Lyoplate markers for 'CD16+CD56+ NK cell'. Markers are associated with human cell types.
-synonym: "CD16+CD56+ NK cell" EXACT [PMID:22343568]
-synonym: "CD16-positive, CD56-dim NK cell" EXACT []
-synonym: "CD16-positive, CD56-low natural killer cell" EXACT []
-synonym: "CD16-positive, CD56-low NK cell" EXACT []
-synonym: "CD16-positive, CD56-positive natural killer cell" EXACT []
-synonym: "CD16-positive, CD56-positive NK cell" EXACT []
-synonym: "cytotoxic CD56-dim natural killer cell" EXACT []
-synonym: "cytotoxic CD56-dim NK cell" EXACT []
-is_a: CL:0000824 {is_inferred="true"} ! mature natural killer cell
 intersection_of: CL:0000824 ! mature natural killer cell
 intersection_of: has_low_plasma_membrane_amount PR:000001024
 intersection_of: lacks_plasma_membrane_part PR:000002015
 intersection_of: RO:0002104 PR:000001483
+intersection_of: RO:0002162 NCBITaxon:9606
 intersection_of: RO:0002215 GO:0001816
 intersection_of: RO:0002215 GO:0042267
 property_value: has_exact_synonym "CD16+CD56+ NK cell" xsd:string {database_cross_reference="PMID:22343568"}
@@ -11668,7 +11625,7 @@ name: cell in vitro
 namespace: cell
 def: "A cell that is maintained or propagated in a controlled artificial environment for use in an investigation." [ReO:mhb]
 comment: 'In vitro', translating literally to 'in glass', typically refers to a controlled, often sterile, laboratory setting where cells or other specimens are placed by some agent for the purpose of studying or manipulating them as part of some research investigation. 'In vitro' is intended to contrast with 'native',which refers to cells or other biological entities that are found in a natural setting. It describes unicellular organisms removed from a natural environement and multicellular organism cells removed from an organism, or cells derived in culture from such displaced cells.
-is_a: CL:0000000
+is_a: CL:0000000 ! cell
 created_by: haendel
 creation_date: 2012-01-12T09:58:38Z
 
@@ -12025,8 +11982,8 @@ namespace: cell
 def: "A cell found in an organism or derived from an organism exhibiting a phenotype that deviates from the expected phenotype of any native cell type of that organism. Abnormal cells are typically found in disease states or disease models." [GOC:add, GOC:cg, GOC:wdd]
 comment: https://github.com/obophenotype/cell-ontology/issues/448
 xref: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C12913
-is_a: GO:0005623
-intersection_of: GO:0005623
+is_a: CL:0000000 ! cell
+intersection_of: CL:0000000 ! cell
 intersection_of: RO:0000053 PATO:0000460
 property_value: http://purl.org/dc/elements/1.1/creator http://orcid.org/0000-0001-9990-8331
 property_value: http://purl.org/dc/elements/1.1/date 2017-01-30T18:53:32Z xsd:dateTime
@@ -12040,7 +11997,7 @@ comment: This cell type is seen human but not found in the mouse.
 synonym: "TEMRA" EXACT [PMID:16237082]
 is_a: CL:0000909 ! CD8-positive, alpha-beta memory T cell
 intersection_of: CL:0000909 ! CD8-positive, alpha-beta memory T cell
-intersection_of: has_completed GO:0043379 ! memory T cell differentiation
+intersection_of: has_completed GO:0043379
 intersection_of: lacks_plasma_membrane_part PR:000001017
 intersection_of: lacks_plasma_membrane_part PR:000001203
 intersection_of: RO:0002104 PR:000001015
@@ -12080,16 +12037,12 @@ property_value: http://purl.org/dc/elements/1.1/date 2017-01-30T19:39:12Z xsd:da
 id: CL:0001065
 name: innate lymphoid cell
 namespace: cell
-def: "A lymphocyte that lacks characteristic T cell, B cell, myeloid cell, and dendritic cell markers, that functions as part of the innate immune response to produce cytokines and other effector responses." [GOC:add, GOC:dsd, PMID:23292121, PMID:23348417]
 def: "A lymphocyte that lacks characteristic T cell, B cell, myeloid cell, and dendritic cell markers, that functions as part of the innate immune response to produce cytokines and other effector responses." [] {database_cross_reference="GOC:dsd", database_cross_reference="PMID:23348417", database_cross_reference="PMID:23292121", database_cross_reference="GOC:add"}
-is_a: CL:0000542 ! lymphocyte
 intersection_of: CL:0000542 ! lymphocyte
 intersection_of: lacks_plasma_membrane_part PR:000001002
 intersection_of: lacks_plasma_membrane_part PR:000001020
 intersection_of: RO:0002215 GO:0001816
 intersection_of: RO:0002215 GO:0045087
-property_value: http://purl.org/dc/elements/1.1/creator http://orcid.org/0000-0001-9990-8331
-property_value: http://purl.org/dc/elements/1.1/date 2017-01-30T20:20:48Z xsd:dateTime
 property_value: http://purl.org/dc/terms/creator http://orcid.org/0000-0001-9990-8331
 property_value: http://purl.org/dc/terms/date 2017-01-30T20:20:48Z xsd:string
 
@@ -12125,13 +12078,9 @@ intersection_of: RO:0002215 GO:0030218
 id: CL:0001067
 name: group 1 innate lymphoid cell
 namespace: cell
-def: "An innate lymphoid cell that is capable of producing the type 1 cytokine IFN-gamma, but not Th2 or Th17 cell-associated cytokines." [GOC:add, GOC:dsd, PMID:23348417]
 def: "An innate lymphoid cell that is capable of producing the type 1 cytokine IFN-gamma, but not Th2 or Th17 cell-associated cytokines." [] {database_cross_reference="GOC:dsd", database_cross_reference="PMID:23348417", database_cross_reference="GOC:add"}
-is_a: CL:0001065 ! innate lymphoid cell
 intersection_of: CL:0001065 ! innate lymphoid cell
 intersection_of: RO:0002215 GO:0032609
-property_value: http://purl.org/dc/elements/1.1/creator http://orcid.org/0000-0001-9990-8331
-property_value: http://purl.org/dc/elements/1.1/date 2017-01-30T20:42:44Z xsd:dateTime
 property_value: http://purl.org/dc/terms/creator http://orcid.org/0000-0001-9990-8331
 property_value: http://purl.org/dc/terms/date 2017-01-30T20:42:44Z xsd:string
 
@@ -12139,11 +12088,7 @@ property_value: http://purl.org/dc/terms/date 2017-01-30T20:42:44Z xsd:string
 id: CL:0001068
 name: ILC1
 namespace: cell
-def: "A group 1 innate lymphoid cell that is non-cytotoxic." [GOC:add, GOC:dsd, PMID:23292121, PMID:23348417]
 def: "A group 1 innate lymphoid cell that is non-cytotoxic." [] {database_cross_reference="GOC:dsd", database_cross_reference="PMID:23348417", database_cross_reference="PMID:23292121", database_cross_reference="GOC:add"}
-is_a: CL:0001067 ! group 1 innate lymphoid cell
-property_value: http://purl.org/dc/elements/1.1/creator http://orcid.org/0000-0001-9990-8331
-property_value: http://purl.org/dc/elements/1.1/date 2017-01-30T20:54:12Z xsd:dateTime
 property_value: http://purl.org/dc/terms/creator http://orcid.org/0000-0001-9990-8331
 property_value: http://purl.org/dc/terms/date 2017-01-30T20:54:12Z xsd:string
 
@@ -12151,18 +12096,12 @@ property_value: http://purl.org/dc/terms/date 2017-01-30T20:54:12Z xsd:string
 id: CL:0001069
 name: group 2 innate lymphoid cell
 namespace: cell
-def: "An innate lymphoid cell that is capable of producing T-helper 2-cell associated cytokines upon stimulation." [GOC:add, GOC:dsd, PMID:23292121, PMID:23562755]
 def: "An innate lymphoid cell that is capable of producing T-helper 2-cell associated cytokines upon stimulation." [] {database_cross_reference="PMID:23562755", database_cross_reference="GOC:dsd", database_cross_reference="PMID:23292121", database_cross_reference="GOC:add"}
-synonym: "ILC2" EXACT []
-synonym: "nuocyte" EXACT []
-is_a: CL:0001065 ! innate lymphoid cell
 intersection_of: CL:0001065 ! innate lymphoid cell
-intersection_of: RO:0002215 GO:0032634 ! interleukin-5 production
+intersection_of: RO:0002215 GO:0032634
 property_value: has_exact_synonym "ILC2" xsd:string
 property_value: has_exact_synonym "natural helper cell" xsd:string
 property_value: has_exact_synonym "nuocyte" xsd:string
-property_value: http://purl.org/dc/elements/1.1/creator http://orcid.org/0000-0001-9990-8331
-property_value: http://purl.org/dc/elements/1.1/date 2017-01-30T21:20:08Z xsd:dateTime
 property_value: http://purl.org/dc/terms/creator http://orcid.org/0000-0001-9990-8331
 property_value: http://purl.org/dc/terms/date 2017-01-30T21:20:08Z xsd:string
 
@@ -12184,15 +12123,10 @@ relationship: BFO:0000050 UBERON:0001347
 id: CL:0001071
 name: group 3 innate lymphoid cell
 namespace: cell
-def: "An innate lymphoid cell that constituitively expresses RORgt and is capable of expressing IL17A and/or IL-22." [GOC:add, GOC:dsd, PMID:23292121, PMID:23348417]
 def: "An innate lymphoid cell that constituitively expresses RORgt and is capable of expressing IL17A and/or IL-22." [] {database_cross_reference="GOC:dsd", database_cross_reference="PMID:23348417", database_cross_reference="PMID:23292121", database_cross_reference="GOC:add"}
-synonym: "ILC3" EXACT []
-is_a: CL:0001065 ! innate lymphoid cell
 intersection_of: CL:0001065 ! innate lymphoid cell
 intersection_of: BFO:0000051 PR:000003455
 property_value: has_exact_synonym "ILC3" xsd:string
-property_value: http://purl.org/dc/elements/1.1/creator http://orcid.org/0000-0001-9990-8331
-property_value: http://purl.org/dc/elements/1.1/date 2017-01-31T20:21:26Z xsd:dateTime
 property_value: http://purl.org/dc/terms/creator http://orcid.org/0000-0001-9990-8331
 property_value: http://purl.org/dc/terms/date 2017-01-31T20:21:26Z xsd:string
 
@@ -12204,6 +12138,7 @@ intersection_of: CL:0001065 ! innate lymphoid cell
 intersection_of: lacks_plasma_membrane_part PR:P28906
 intersection_of: RO:0000053 PATO:0001501
 intersection_of: RO:0002104 PR:P10721
+intersection_of: RO:0002162 NCBITaxon:9606
 relationship: RO:0002202 CL:0001074 ! CD34-positive, CD56-positive, CD117-positive common innate lymphoid precursor, human
 property_value: has_exact_synonym "CD34-negative, CD117-positive ILC" xsd:string
 property_value: has_exact_synonym "CD34-negative, CD117-positive ILCP" xsd:string
@@ -12216,6 +12151,7 @@ def: "An innate lymphoid cell in the human with the phenotype CD34-negative, CD5
 intersection_of: CL:0001072 ! CD34-negative, CD117-positive innate lymphoid cell, human
 intersection_of: RO:0002104 PR:P10721
 intersection_of: RO:0002104 PR:P13591
+intersection_of: RO:0002162 NCBITaxon:9606
 property_value: has_exact_synonym "CD34-negative, CD56-positive, CD117-positive ILC" xsd:string
 property_value: has_exact_synonym "CD34-negative, CD56-positive, CD117-positive ILCP" xsd:string
 property_value: has_exact_synonym "CD34-negative, CD56-positive, CD117-positive innate lymphoid cell precursor" xsd:string
@@ -12229,6 +12165,7 @@ intersection_of: RO:0000053 PATO:0001501
 intersection_of: RO:0002104 PR:P10721
 intersection_of: RO:0002104 PR:P13591
 intersection_of: RO:0002104 PR:P28906
+intersection_of: RO:0002162 NCBITaxon:9606
 property_value: has_exact_synonym "CD34-positive, CD56-positive, CD117-positive CILP" xsd:string
 
 [Term]
@@ -12237,6 +12174,7 @@ name: KLRG1-positive innate lymphoid cell, human
 def: "An innate lymphoid cell in the human with the phenotype KLRG1-positive that is a precusor for ILC2 cells." [] {database_cross_reference="PMID:31201208", database_cross_reference="GOC:add"}
 intersection_of: CL:0001072 ! CD34-negative, CD117-positive innate lymphoid cell, human
 intersection_of: RO:0002104 PR:Q96E93
+intersection_of: RO:0002162 NCBITaxon:9606
 property_value: has_exact_synonym "KLRG1-positive ILC" xsd:string
 
 [Term]
@@ -12245,6 +12183,7 @@ name: NKp46-positive innate lymphoid cell, human
 def: "An innate lymphoid cell in the human with the phenotype NKp46-positive that is a precusor for NK cells and ILC3 cells." [] {database_cross_reference="PMID:31201208", database_cross_reference="PMID:31337734", database_cross_reference="GOC:add"}
 intersection_of: CL:0001074 ! CD34-positive, CD56-positive, CD117-positive common innate lymphoid precursor, human
 intersection_of: RO:0002104 PR:O76036
+intersection_of: RO:0002162 NCBITaxon:9606
 property_value: has_exact_synonym "NKp46-positive ILC" xsd:string
 
 [Term]
@@ -12254,6 +12193,7 @@ def: "An ILC1 cell in the human with the phenotype CD56-negative, IL-7Ralpha-pos
 intersection_of: CL:0001068 ! ILC1
 intersection_of: BFO:0000051 PR:Q9UL17
 intersection_of: RO:0002104 PR:P16871
+intersection_of: RO:0002162 NCBITaxon:9606
 property_value: has_exact_synonym "innate lymphoid cell 1, human" xsd:string
 
 [Term]
@@ -12262,6 +12202,7 @@ name: group 3 innate lymphoid cell, human
 def: "A group 3 innate lymphoid cell in the human with the phenotype IL-7Ralpha-positive." [] {database_cross_reference="PMID:31500958", database_cross_reference="GOC:add"}
 intersection_of: CL:0001071 ! group 3 innate lymphoid cell
 intersection_of: RO:0002104 PR:P16871
+intersection_of: RO:0002162 NCBITaxon:9606
 property_value: has_exact_synonym "ILC3, human" xsd:string
 
 [Term]
@@ -12271,6 +12212,7 @@ def: "A group 3 innate lymphoid cell in the human with the phenotype IL-7Ralpha-
 intersection_of: CL:0001071 ! group 3 innate lymphoid cell
 intersection_of: RO:0002104 PR:O95944
 intersection_of: RO:0002104 PR:P16871
+intersection_of: RO:0002162 NCBITaxon:9606
 property_value: has_exact_synonym "ILC3, human" xsd:string
 
 [Term]
@@ -12280,6 +12222,7 @@ def: "A group 3 innate lymphoid cell in the human with the phenotype IL-7Ralpha-
 intersection_of: CL:0001071 ! group 3 innate lymphoid cell
 intersection_of: lacks_plasma_membrane_part PR:O95944
 intersection_of: RO:0002104 PR:P16871
+intersection_of: RO:0002162 NCBITaxon:9606
 property_value: has_exact_synonym "ILC3, human" xsd:string
 
 [Term]
@@ -12292,6 +12235,7 @@ intersection_of: RO:0002104 PR:P01589
 intersection_of: RO:0002104 PR:P16871
 intersection_of: RO:0002104 PR:Q12918
 intersection_of: RO:0002104 PR:Q9Y5Y4
+intersection_of: RO:0002162 NCBITaxon:9606
 property_value: has_exact_synonym "ILC2, human" xsd:string
 
 [Term]
@@ -12305,22 +12249,26 @@ property_value: has_exact_synonym "immature ILC" xsd:string
 [Term]
 id: CL:0001083
 name: cell, human
-intersection_of: CL:0000000
+intersection_of: CL:0000000 ! cell
+intersection_of: RO:0002162 NCBITaxon:9606
 
 [Term]
 id: CL:0001084
 name: lymphocyte, human
 intersection_of: CL:0000542 ! lymphocyte
+intersection_of: RO:0002162 NCBITaxon:9606
 
 [Term]
 id: CL:0001085
 name: cell, mouse
-intersection_of: CL:0000000
+intersection_of: CL:0000000 ! cell
+intersection_of: RO:0002162 NCBITaxon:10090
 
 [Term]
 id: CL:0001086
 name: lymphocyte, mouse
 intersection_of: CL:0000542 ! lymphocyte
+intersection_of: RO:0002162 NCBITaxon:10090
 
 [Term]
 id: CL:0001200
@@ -12374,7 +12322,7 @@ synonym: "CD8-positive, alpha-beta memory T-cell, CD45RO-positive" EXACT []
 synonym: "CD8-positive, alpha-beta memory T-lymphocyte, CD45RO-positive" EXACT []
 is_a: CL:0000909 {is_inferred="true"} ! CD8-positive, alpha-beta memory T cell
 intersection_of: CL:0000909 ! CD8-positive, alpha-beta memory T cell
-intersection_of: has_completed GO:0043379 ! memory T cell differentiation
+intersection_of: has_completed GO:0043379
 intersection_of: has_high_plasma_membrane_amount PR:000001307
 intersection_of: has_high_plasma_membrane_amount PR:000001381
 intersection_of: lacks_plasma_membrane_part PR:000001380
@@ -12393,7 +12341,7 @@ synonym: "CD4-positive, alpha-beta memory T-cell, CD45RO-positive" EXACT []
 synonym: "CD4-positive, alpha-beta memory T-lymphocyte, CD45RO-positive" EXACT []
 is_a: CL:0000897 {is_inferred="true"} ! CD4-positive, alpha-beta memory T cell
 intersection_of: CL:0000897 ! CD4-positive, alpha-beta memory T cell
-intersection_of: has_completed GO:0043379 ! memory T cell differentiation
+intersection_of: has_completed GO:0043379
 intersection_of: has_high_plasma_membrane_amount PR:000001307
 intersection_of: has_high_plasma_membrane_amount PR:000001381
 intersection_of: lacks_plasma_membrane_part PR:000001380
@@ -13807,10 +13755,7 @@ creation_date: 2010-07-22T03:26:00Z
 id: CL:0002089
 name: group 2 innate lymphoid cell, mouse
 namespace: cell
-def: "A group 2 innate lymphoid cell in the mouse capable of secreting IL-13 in response to a helminth infection. This cell is lineage-negative, ICOS-positive, IL1RL1-positive, IL7Ralpha-positive, and IL17Br-positive." [GOC:add, GOC:tfm, PMID:20200518]
 def: "A group 2 innate lymphoid cell in the mouse capable of secreting IL-13 in response to a helminth infection. This cell is lineage-negative, ICOS-positive, IL1RL1-positive, IL7Ralpha-positive, and IL17Br-positive." [] {database_cross_reference="PMID:20200518", database_cross_reference="GOC:tfm", database_cross_reference="GOC:add"}
-synonym: "nuocyte" BROAD []
-is_a: CL:0001069 {is_inferred="true"} ! group 2 innate lymphoid cell
 intersection_of: CL:0001069 ! group 2 innate lymphoid cell
 intersection_of: lacks_plasma_membrane_part PR:000001002
 intersection_of: lacks_plasma_membrane_part PR:000001004
@@ -13827,6 +13772,7 @@ intersection_of: RO:0002104 PR:000001860
 intersection_of: RO:0002104 PR:000001869
 intersection_of: RO:0002104 PR:000008982
 intersection_of: RO:0002104 PR:000008994
+intersection_of: RO:0002162 NCBITaxon:10090
 intersection_of: RO:0002215 GO:0002830
 intersection_of: RO:0002215 GO:0032616
 property_value: has_broad_synonym "nuocyte" xsd:string
@@ -16855,21 +16801,18 @@ creation_date: 2010-09-20T03:07:03Z
 
 [Term]
 id: CL:0002338
-name: CD56-positive, CD161-positive immature natural killer cell
 name: CD56-positive, CD161-positive immature natural killer cell, human
 namespace: cell
 def: "A natural killer cell that is developmentally immature, has the phenotype CD34-negative, CD56-negative, CD117-positive, CD122-positive,and CD161-positive." [] {database_cross_reference="PMID:12457618", database_cross_reference="ISBN:0781735149", database_cross_reference="GOC:add", database_cross_reference="GO_REF:0000031"}
-def: "A natural killer cell that is developmentally immature, has the phenotype CD34-negative, CD56-positive, CD117-positive, CD122-positive,and CD161-positive." [GO_REF:0000031, GOC:add, https://orcid.org/0000-0001-5208-3432, ISBN:0781735149, PMID:12457618]
 comment: Human markers; killer cell immunoglobulin-like receptor 2DL1 is used as a representative example (PRO at this time lacks a KIR superfamily).
-synonym: "p-NK" RELATED [PMID:12457618]
-is_a: CL:0000823 {is_inferred="true"} ! immature natural killer cell
 intersection_of: CL:0000823 ! immature natural killer cell
 intersection_of: lacks_plasma_membrane_part PR:000001003
 intersection_of: RO:0002104 PR:000001024
 intersection_of: RO:0002104 PR:000001381
 intersection_of: RO:0002104 PR:000001874
 intersection_of: RO:0002104 PR:000002065
-relationship: RO:0002202 CL:0002344 ! CD56-negative, CD161-positive immature natural killer cell
+intersection_of: RO:0002162 NCBITaxon:9606
+relationship: RO:0002202 CL:0002344 ! CD56-negative, CD161-positive immature natural killer cell, human
 property_value: has_related_synonym "p-NK" xsd:string {database_cross_reference="PMID:12457618"}
 created_by: tmeehan
 creation_date: 2010-09-21T10:06:53Z
@@ -16916,19 +16859,14 @@ creation_date: 2010-09-20T03:49:58Z
 
 [Term]
 id: CL:0002343
-name: decidual natural killer cell
 name: decidual natural killer cell, human
 namespace: cell
-def: "A natural killer cell subset that is found in the decidual of the uterus and is CD56-high, Galectin-1-positive and CD16-negative. This cell type represents the most abundant immune cell type in the decidual during the first trimester of pregnancy." [PMID:14568979, PMID:19800965]
 def: "A natural killer cell subset that is found in the decidual of the uterus and is CD56-high, Galectin-1-positive and CD16-negative. This cell type represents the most abundant immune cell type in the decidual during the first trimester of pregnancy." [] {database_cross_reference="PMID:14568979", database_cross_reference="PMID:19800965"}
-synonym: "decidual NK cell" EXACT []
-synonym: "dNK cell" EXACT []
-is_a: CL:0000824 {is_inferred="true"} ! mature natural killer cell
 intersection_of: CL:0000824 ! mature natural killer cell
 intersection_of: has_high_plasma_membrane_amount PR:000001024
 intersection_of: lacks_plasma_membrane_part PR:000001483
 intersection_of: RO:0002104 PR:000009766
-relationship: RO:0001025 UBERON:0002450
+intersection_of: RO:0002162 NCBITaxon:9606
 property_value: has_exact_synonym "decidual NK cell" xsd:string
 property_value: has_exact_synonym "dNK cell" xsd:string
 created_by: tmeehan
@@ -16936,40 +16874,34 @@ creation_date: 2010-09-20T04:00:02Z
 
 [Term]
 id: CL:0002344
-name: CD56-negative, CD161-positive immature natural killer cell
 name: CD56-negative, CD161-positive immature natural killer cell, human
 namespace: cell
 def: "A natural killer cell that is developmentally immature, has the phenotype CD34-negative, CD56-negative, CD117-positive, CD122-positive,and CD161-positive." [] {database_cross_reference="PMID:12457618", database_cross_reference="ISBN:0781735149", database_cross_reference="GOC:add", database_cross_reference="GO_REF:0000031"}
-def: "A natural killer cell that is developmentally immature, has the phenotype CD34-negative, CD56-negative, CD117-positive, CD122-positive,and CD161-positive." [GO_REF:0000031, GOC:add, ISBN:0781735149, PMID:12457618]
 comment: Human markers; killer cell immunoglobulin-like receptor 2DL1 is used as a representative example (PRO at this time lacks a KIR superfamily).
-synonym: "p-NK" RELATED [PMID:12457618]
-is_a: CL:0000823 {is_inferred="true"} ! immature natural killer cell
 intersection_of: CL:0000823 ! immature natural killer cell
 intersection_of: lacks_plasma_membrane_part PR:000001003
 intersection_of: lacks_plasma_membrane_part PR:000001024
 intersection_of: RO:0002104 PR:000001381
 intersection_of: RO:0002104 PR:000001874
 intersection_of: RO:0002104 PR:000002065
+intersection_of: RO:0002162 NCBITaxon:9606
 property_value: has_related_synonym "p-NK" xsd:string {database_cross_reference="PMID:12457618"}
 created_by: tmeehan
 creation_date: 2010-09-20T04:33:11Z
 
 [Term]
 id: CL:0002345
-name: CD27-low, CD11b-low immature natural killer cell
 name: CD27-low, CD11b-low immature natural killer cell, mouse
 namespace: cell
 def: "An immature natural killer cell that is NK1.1-positive, DX5-positive, Ly49-positive, CD27-low and CD11b-low. This cell type is found in high numbers in the liver." [] {database_cross_reference="GOC:tfm", database_cross_reference="http:www.immgen.org/index_content.html", database_cross_reference="PMID:19949422"}
-def: "An immature natural killer cell that is NK1.1-positive, DX5-positive, Ly49-positive, CD27-low and CD11b-low. This cell type is found in high numbers in the liver." [GOC:tfm, http:www.immgen.org/index_content.html, PMID:19949422]
 comment: Markers are associated with mouse cells.
-synonym: "preNK.BM" BROAD []
-is_a: CL:0000823 {is_inferred="true"} ! immature natural killer cell
 intersection_of: CL:0000823 ! immature natural killer cell
 intersection_of: has_low_plasma_membrane_amount PR:000001012
 intersection_of: has_low_plasma_membrane_amount PR:000001963
 intersection_of: RO:0002104 PR:000001008
 intersection_of: RO:0002104 PR:000002977
 intersection_of: RO:0002104 PR:000009616
+intersection_of: RO:0002162 NCBITaxon:10090
 relationship: RO:0002202 CL:0002346 ! Dx5-negative, NK1.1-positive immature natural killer cell, mouse
 property_value: has_broad_synonym "preNK.BM" xsd:string
 created_by: tmeehan
@@ -16977,29 +16909,26 @@ creation_date: 2010-09-20T04:41:01Z
 
 [Term]
 id: CL:0002346
-name: Dx5-negative, NK1.1-positive immature natural killer cell
 name: Dx5-negative, NK1.1-positive immature natural killer cell, mouse
 namespace: cell
 def: "An immature natural killer cell that is NK1.1-positive and DX-5 negative." [] {database_cross_reference="GOC:tfm", database_cross_reference="PMID:12766763"}
-def: "An immature natural killer cell that is NK1.1-positive and DX-5 negative." [GOC:tfm, PMID:12766763]
-is_a: CL:0000823 {is_inferred="true"} ! immature natural killer cell
 intersection_of: CL:0000823 ! immature natural killer cell
 intersection_of: lacks_plasma_membrane_part PR:000001008
 intersection_of: RO:0002104 PR:000002977
+intersection_of: RO:0002162 NCBITaxon:10090
 created_by: tmeehan
 creation_date: 2010-09-21T10:11:44Z
 
 [Term]
 id: CL:0002347
-name: CD27-high, CD11b-high natural killer cell
 name: CD27-high, CD11b-high natural killer cell, mouse
 namespace: cell
-def: "A mature natural killer cell that is CD27-high and CD11b-high. This cell type is capable of interferon-gamma secretion." [GOC:tfm, PMID:19949422]
 def: "A mature natural killer cell that is CD27-high and CD11b-high. This cell type is capable of interferon-gamma secretion." [] {database_cross_reference="GOC:tfm", database_cross_reference="PMID:19949422"}
 is_a: CL:0002426 ! CD11b-positive, CD27-positive natural killer cell, mouse
 intersection_of: CL:0000824 ! mature natural killer cell
 intersection_of: has_high_plasma_membrane_amount PR:000001012
 intersection_of: has_high_plasma_membrane_amount PR:000001963
+intersection_of: RO:0002162 NCBITaxon:10090
 intersection_of: RO:0002215 GO:0032609
 relationship: RO:0002202 CL:0002349 ! CD27-high, CD11b-low natural killer cell, mouse
 created_by: tmeehan
@@ -17007,31 +16936,29 @@ creation_date: 2010-09-21T10:19:49Z
 
 [Term]
 id: CL:0002348
-name: CD27-low, CD11b-high natural killer cell
 name: CD27-low, CD11b-high natural killer cell, mouse
 namespace: cell
-def: "A CD27-low, CD11b-high natural killer cell that has a higher threshold of activation due to higher expression of inhibitory receptors." [GOC:tfm, PMID:1994922]
 def: "A CD27-low, CD11b-high natural killer cell that has a higher threshold of activation due to higher expression of inhibitory receptors." [] {database_cross_reference="GOC:tfm", database_cross_reference="PMID:1994922"}
 is_a: CL:0002426 ! CD11b-positive, CD27-positive natural killer cell, mouse
 intersection_of: CL:0000824 ! mature natural killer cell
 intersection_of: has_high_plasma_membrane_amount PR:000001012
 intersection_of: has_low_plasma_membrane_amount PR:000001963
+intersection_of: RO:0002162 NCBITaxon:10090
 relationship: RO:0002202 CL:0002347 ! CD27-high, CD11b-high natural killer cell, mouse
 created_by: tmeehan
 creation_date: 2010-09-21T10:19:54Z
 
 [Term]
 id: CL:0002349
-name: CD27-high, CD11b-low natural killer cell
 name: CD27-high, CD11b-low natural killer cell, mouse
 namespace: cell
-def: "A natural killer cell that is CD27-high and CD11b-low." [GOC:tfm, PMID:1994922]
 def: "A natural killer cell that is CD27-high and CD11b-low." [] {database_cross_reference="GOC:tfm", database_cross_reference="PMID:1994922"}
 is_a: CL:0002426 ! CD11b-positive, CD27-positive natural killer cell, mouse
 intersection_of: CL:0000824 ! mature natural killer cell
 intersection_of: has_high_plasma_membrane_amount PR:000001963
 intersection_of: has_low_plasma_membrane_amount PR:000001012
-relationship: RO:0002202 CL:0002345 ! CD27-low, CD11b-low immature natural killer cell
+intersection_of: RO:0002162 NCBITaxon:10090
+relationship: RO:0002202 CL:0002345 ! CD27-low, CD11b-low immature natural killer cell, mouse
 created_by: tmeehan
 creation_date: 2010-09-21T10:20:00Z
 
@@ -17954,16 +17881,14 @@ creation_date: 2010-10-21T01:16:24Z
 
 [Term]
 id: CL:0002426
-name: CD11b-positive, CD27-positive natural killer cell
 name: CD11b-positive, CD27-positive natural killer cell, mouse
 namespace: cell
-def: "A mature natural killer cell that is CD11b-positive and CD27-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
 def: "A mature natural killer cell that is CD11b-positive and CD27-positive." [] {database_cross_reference="GOC:tfm", database_cross_reference="http://www.immgen.org/index_content.html"}
 comment: A natural killer cell that is NK1.1-positive, CD11b-positive, and CD27-positive.
-is_a: CL:0002438 {is_inferred="true"} ! NK1.1-positive natural killer cell, mouse
 intersection_of: CL:0002438 ! NK1.1-positive natural killer cell, mouse
 intersection_of: RO:0002104 PR:000001012
 intersection_of: RO:0002104 PR:000001963
+intersection_of: RO:0002162 NCBITaxon:10090
 created_by: tmeehan
 creation_date: 2010-10-25T03:07:59Z
 
@@ -18133,17 +18058,13 @@ creation_date: 2010-10-21T03:51:50Z
 
 [Term]
 id: CL:0002438
-name: NK1.1-positive natural killer cell
 name: NK1.1-positive natural killer cell, mouse
 namespace: cell
-def: "A mature NK cell that is NK1.1-positive." [GOC:tfm]
 def: "A mature NK cell that is NK1.1-positive." [] {database_cross_reference="GOC:tfm"}
 comment: Note: Nk1.1 expression is restricted to C57BL strains of laboratory mice.
-synonym: "NK.sp" EXACT []
-synonym: "NK1.1-positive NK cell" EXACT []
-is_a: CL:0000824 {is_inferred="true"} ! mature natural killer cell
 intersection_of: CL:0000824 ! mature natural killer cell
 intersection_of: RO:0002104 PR:000002977
+intersection_of: RO:0002162 NCBITaxon:10090
 property_value: has_exact_synonym "NK.sp" xsd:string
 property_value: has_exact_synonym "NK1.1-positive NK cell" xsd:string
 created_by: tmeehan
@@ -18151,62 +18072,50 @@ creation_date: 2010-10-25T03:18:04Z
 
 [Term]
 id: CL:0002439
-name: NKGA2-positive natural killer cell
 name: NKGA2-positive natural killer cell, mouse
 namespace: cell
-def: "A NK1.1-positive T cell that is NKGA2-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
 def: "A NK1.1-positive T cell that is NKGA2-positive." [] {database_cross_reference="GOC:tfm", database_cross_reference="http://www.immgen.org/index_content.html"}
-synonym: "NK.G2A+.SP" EXACT []
-is_a: CL:0002438 {is_inferred="true"} ! NK1.1-positive natural killer cell, mouse
 intersection_of: CL:0002438 ! NK1.1-positive natural killer cell, mouse
 intersection_of: RO:0002104 PR:000002023
+intersection_of: RO:0002162 NCBITaxon:10090
 property_value: has_exact_synonym "NK.G2A+.SP" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:31:09Z
 
 [Term]
 id: CL:0002440
-name: Ly49D-positive natural killer cell
 name: Ly49D-positive natural killer cell, mouse
 namespace: cell
-def: "A NK1.1-positive T cell that is Ly49D-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
 def: "A NK1.1-positive T cell that is Ly49D-positive." [] {database_cross_reference="GOC:tfm", database_cross_reference="http://www.immgen.org/index_content.html"}
-synonym: "NK.49D+.Sp" EXACT []
-is_a: CL:0002438 {is_inferred="true"} ! NK1.1-positive natural killer cell, mouse
 intersection_of: CL:0002438 ! NK1.1-positive natural killer cell, mouse
 intersection_of: RO:0002104 PR:000009619
+intersection_of: RO:0002162 NCBITaxon:10090
 property_value: has_exact_synonym "NK.49D+.Sp" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:36:19Z
 
 [Term]
 id: CL:0002441
-name: CD94-positive natural killer cell
 name: CD94-positive natural killer cell, mouse
 namespace: cell
-def: "A NK1.1-positive T cell that is CD94-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
 def: "A NK1.1-positive T cell that is CD94-positive." [] {database_cross_reference="GOC:tfm", database_cross_reference="http://www.immgen.org/index_content.html"}
-synonym: "NK.94+.Sp" EXACT []
-is_a: CL:0002438 {is_inferred="true"} ! NK1.1-positive natural killer cell, mouse
 intersection_of: CL:0002438 ! NK1.1-positive natural killer cell, mouse
 intersection_of: RO:0002104 PR:000001402
+intersection_of: RO:0002162 NCBITaxon:10090
 property_value: has_exact_synonym "NK.94+.Sp" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:36:28Z
 
 [Term]
 id: CL:0002442
-name: CD94-negative, Ly49CI-negative natural killer cell
 name: CD94-negative, Ly49CI-negative natural killer cell, mouse
 namespace: cell
 def: "A NK1.1-positive T cell that is CD94-negative and Ly49Cl-negative." [] {database_cross_reference="GOC:tfm", database_cross_reference="http://www.immgen.org/index_content.html"}
-def: "A NK1.1-positive T cell that is CD94-negative and Ly49Cl-negative." [GOC:tfm, http://www.immgen.org/index_content.html]
-synonym: "CD94- Ly49I-negative NK cell" EXACT []
-synonym: "NK.49Cl-94-.Sp" EXACT []
 is_a: CL:0002438 ! NK1.1-positive natural killer cell, mouse
 intersection_of: CL:0000623 ! natural killer cell
 intersection_of: lacks_plasma_membrane_part PR:000001402
 intersection_of: lacks_plasma_membrane_part PR:000009618
+intersection_of: RO:0002162 NCBITaxon:10090
 property_value: has_exact_synonym "CD94- Ly49I-negative NK cell" xsd:string
 property_value: has_exact_synonym "NK.49Cl-94-.Sp" xsd:string
 created_by: tmeehan
@@ -18214,16 +18123,12 @@ creation_date: 2010-10-25T03:56:21Z
 
 [Term]
 id: CL:0002443
-name: Ly49CI-positive natural killer cell
 name: Ly49CI-positive natural killer cell, mouse
 namespace: cell
-def: "A NK1.1-positive T cell that is Ly49Cl-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
 def: "A NK1.1-positive T cell that is Ly49Cl-positive." [] {database_cross_reference="GOC:tfm", database_cross_reference="http://www.immgen.org/index_content.html"}
-synonym: "Ly49I-positive NK cell" EXACT []
-synonym: "NK.49Cl+.Sp" EXACT []
-is_a: CL:0002438 {is_inferred="true"} ! NK1.1-positive natural killer cell, mouse
 intersection_of: CL:0002438 ! NK1.1-positive natural killer cell, mouse
 intersection_of: RO:0002104 PR:000009618
+intersection_of: RO:0002162 NCBITaxon:10090
 property_value: has_exact_synonym "Ly49I-positive NK cell" xsd:string
 property_value: has_exact_synonym "NK.49Cl+.Sp" xsd:string
 created_by: tmeehan
@@ -18231,46 +18136,36 @@ creation_date: 2010-10-25T03:36:38Z
 
 [Term]
 id: CL:0002444
-name: Ly49H-positive natural killer cell
 name: Ly49H-positive natural killer cell, mouse
 namespace: cell
 def: "A NK1.1-positive T cell that is Ly49H-positive." [] {database_cross_reference="GOC:tfm", database_cross_reference="http://www.immgen.org/index_content.html"}
-def: "A NK1.1-positive T cell that is Ly49H-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
-synonym: "LyH49H-positive" EXACT []
-is_a: CL:0002438 {is_inferred="true"} ! NK1.1-positive natural killer cell, mouse
 intersection_of: CL:0002438 ! NK1.1-positive natural killer cell, mouse
 intersection_of: RO:0002104 PR:000009623
+intersection_of: RO:0002162 NCBITaxon:10090
 property_value: has_exact_synonym "LyH49H-positive" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:36:43Z
 
 [Term]
 id: CL:0002445
-name: Ly49D-negative natural killer cell
 name: Ly49D-negative natural killer cell, mouse
 namespace: cell
 def: "A NK1.1-positive T cell that is Ly49D-negative." [] {database_cross_reference="GOC:tfm", database_cross_reference="http://www.immgen.org/index_content.html"}
-def: "A NK1.1-positive T cell that is Ly49D-negative." [GOC:tfm, http://www.immgen.org/index_content.html]
-synonym: "NK.49D-.Sp" EXACT []
-is_a: CL:0002438 {is_inferred="true"} ! NK1.1-positive natural killer cell, mouse
 intersection_of: CL:0002438 ! NK1.1-positive natural killer cell, mouse
 intersection_of: lacks_plasma_membrane_part PR:000009619
+intersection_of: RO:0002162 NCBITaxon:10090
 property_value: has_exact_synonym "NK.49D-.Sp" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:39:02Z
 
 [Term]
 id: CL:0002446
-name: Ly49CI-negative natural killer cell
 name: Ly49CI-negative natural killer cell, mouse
 namespace: cell
 def: "A NK1.1-positive T cell that is Ly49Cl-negative." [] {database_cross_reference="GOC:tfm", database_cross_reference="http://www.immgen.org/index_content.html"}
-def: "A NK1.1-positive T cell that is Ly49Cl-negative." [GOC:tfm, http://www.immgen.org/index_content.html]
-synonym: "Ly49I-negative NK cell" EXACT []
-synonym: "NK.49Cl-.Sp" EXACT []
-is_a: CL:0002438 {is_inferred="true"} ! NK1.1-positive natural killer cell, mouse
 intersection_of: CL:0002438 ! NK1.1-positive natural killer cell, mouse
 intersection_of: lacks_plasma_membrane_part PR:000009618
+intersection_of: RO:0002162 NCBITaxon:10090
 property_value: has_exact_synonym "Ly49I-negative NK cell" xsd:string
 property_value: has_exact_synonym "NK.49Cl-.Sp" xsd:string
 created_by: tmeehan
@@ -18278,46 +18173,37 @@ creation_date: 2010-10-25T03:52:04Z
 
 [Term]
 id: CL:0002447
-name: CD94-negative natural killer cell
 name: CD94-negative natural killer cell, mouse
 namespace: cell
 def: "A NK1.1-positive T cell that is CD94-negative." [] {database_cross_reference="GOC:tfm", database_cross_reference="http://www.immgen.org/index_content.html"}
-def: "A NK1.1-positive T cell that is CD94-negative." [GOC:tfm, http://www.immgen.org/index_content.html]
-synonym: "NK.94-.Sp" EXACT []
-is_a: CL:0002438 {is_inferred="true"} ! NK1.1-positive natural killer cell, mouse
 intersection_of: CL:0002438 ! NK1.1-positive natural killer cell, mouse
 intersection_of: lacks_plasma_membrane_part PR:000001402
+intersection_of: RO:0002162 NCBITaxon:10090
 property_value: has_exact_synonym "NK.94-.Sp" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:54:18Z
 
 [Term]
 id: CL:0002448
-name: Ly49H-negative natural killer cell
 name: Ly49H-negative natural killer cell, mouse
 namespace: cell
-def: "A NK1.1-positive T cell that is Ly49H-negative." [GOC:tfm, http://www.immgen.org/index_content.html]
 def: "A NK1.1-positive T cell that is Ly49H-negative." [] {database_cross_reference="GOC:tfm", database_cross_reference="http://www.immgen.org/index_content.html"}
-synonym: "LyH49H-negative" EXACT []
-is_a: CL:0002438 {is_inferred="true"} ! NK1.1-positive natural killer cell, mouse
 intersection_of: CL:0002438 ! NK1.1-positive natural killer cell, mouse
 intersection_of: lacks_plasma_membrane_part PR:000009623
+intersection_of: RO:0002162 NCBITaxon:10090
 property_value: has_exact_synonym "LyH49H-negative" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:42:42Z
 
 [Term]
 id: CL:0002449
-name: CD94-positive Ly49CI-positive natural killer cell
 name: CD94-positive Ly49CI-positive natural killer cell, mouse
 namespace: cell
 def: "A NK1.1-positive T cell that is CD94-positive and Ly49Cl-positive." [] {database_cross_reference="GOC:tfm", database_cross_reference="http://www.immgen.org/index_content.html"}
-def: "A NK1.1-positive T cell that is CD94-positive and Ly49Cl-positive." [GOC:tfm, http://www.immgen.org/index_content.html]
-synonym: "NK.49Cl+94+.Sp" EXACT []
-is_a: CL:0002438 {is_inferred="true"} ! NK1.1-positive natural killer cell, mouse
 intersection_of: CL:0002438 ! NK1.1-positive natural killer cell, mouse
 intersection_of: RO:0002104 PR:000001402
 intersection_of: RO:0002104 PR:000009618
+intersection_of: RO:0002162 NCBITaxon:10090
 property_value: has_exact_synonym "NK.49Cl+94+.Sp" xsd:string
 created_by: tmeehan
 creation_date: 2010-10-25T03:56:27Z
@@ -20917,7 +20803,7 @@ comment: Cell has been described as being CD45RA-positive in human, but this doe
 is_a: CL:0000792 ! CD4-positive, CD25-positive, alpha-beta regulatory T cell
 is_a: CL:0000813 ! memory T cell
 intersection_of: CL:0000792 ! CD4-positive, CD25-positive, alpha-beta regulatory T cell
-intersection_of: has_completed GO:0043379 ! memory T cell differentiation
+intersection_of: has_completed GO:0043379
 created_by: tmeehan
 creation_date: 2011-08-25T03:17:34Z
 
@@ -21330,8 +21216,8 @@ id: CL:0007011
 name: enteric neuron
 namespace: cell
 def: "Neuron that is part of the enteric nervous system." [CL:MAH]
-is_a: CL:0000540
-intersection_of: CL:0000540
+is_a: CL:0000540 ! neuron
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:0002005
 relationship: BFO:0000050 UBERON:0002005
 relationship: RO:0002202 CL:0002607 ! migratory enteric neural crest cell
@@ -21620,7 +21506,7 @@ relationship: RO:0002203 CL:0008017 ! adult skeletal muscle myoblast
 [Term]
 id: CL:0008021
 name: anterior lateral line ganglion neuron
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:2001391
 
 [Term]
@@ -21650,7 +21536,7 @@ intersection_of: BFO:0000050 UBERON:0001264
 id: CL:0008025
 name: noradrenergic neuron
 def: "A neuron that release noradrenaline (noriphinephrine) as a neurotransmitter." [GOC:dos]
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0061533
 
 [Term]
@@ -21672,7 +21558,7 @@ creation_date: 2017-06-29T11:05:22Z
 [Term]
 id: CL:0008028
 name: visual system neuron
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002216 GO:0007601
 created_by: dos
 creation_date: 2017-07-09T19:12:36Z
@@ -21890,7 +21776,7 @@ intersection_of: RO:0002100 UBERON:0000956
 id: CL:0010012
 name: cerebral cortex neuron
 def: "A neuron that is part_of a cerebral cortex." []
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:0000956
 
 [Term]
@@ -21936,7 +21822,7 @@ intersection_of: RO:0002203 CL:0000746 ! cardiac muscle cell
 [Term]
 id: CL:0010022
 name: cardiac neuron
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:0000948
 
 [Term]
@@ -22166,7 +22052,7 @@ created_by: http://orcid.org/0000-0001-5208-3432
 id: CL:0011100
 name: galanergic neuron
 def: "Neuron that secretes the neurotransmitter galanin." [GOC:NV, PMID:23159249, ZFIN:CVS, ZFIN:YB]
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0011101
@@ -22235,16 +22121,16 @@ id: CL:0011109
 name: hypocretin-secreting neuron
 def: "A neuron that releases hypocretin as a neurotransmitter." [GOC:NV, PMID:23848055]
 synonym: "orexin" EXACT []
-is_a: CL:0000540
-intersection_of: CL:0000540
+is_a: CL:0000540 ! neuron
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0061585
 
 [Term]
 id: CL:0011110
 name: histaminergic neuron
 def: "Neuron that secretes histamine." [GOC:NV, PMID:22677810]
-is_a: CL:0000540
-intersection_of: CL:0000540
+is_a: CL:0000540 ! neuron
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0061538
 
 [Term]
@@ -22253,22 +22139,22 @@ name: gonadotropin releasing neuron
 def: "Neuroendocrine cells that are born in the nasal placode during embryonic development and migrate through the nose and forebrain to the hypothalamus, where they regulate reproduction." [GOC:NV, PMID:21828096]
 synonym: "GnRH neuron" EXACT []
 synonym: "GnRH-secreting neuron" EXACT []
-is_a: CL:0000540
-intersection_of: CL:0000540
+is_a: CL:0000540 ! neuron
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0032274
 
 [Term]
 id: CL:0011112
 name: magnocellular neurosecretory cell
 def: "Neurons part of the hypothalamic supraoptic and paraventricular nuclei that secrete the hormones, oxytocin and vasopressin into the systemic circulation from the posterior pituitary gland." [GOC:NV, PMID:10711808]
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 
 [Term]
 id: CL:0011113
 name: spiral ganglion neuron
 def: "Neuron found in the spriral ganglion." [GOC:NV]
-is_a: CL:0000540
-intersection_of: CL:0000540
+is_a: CL:0000540 ! neuron
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:0000395
 
 [Term]
@@ -22376,7 +22262,7 @@ property_value: http://purl.org/dc/elements/1.1/date 2020-05-07T18:14:52Z xsd:da
 [Term]
 id: CL:1000001
 name: retrotrapezoid nucleus neuron
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:0009918
 
 [Term]
@@ -22505,7 +22391,7 @@ intersection_of: BFO:0000050 UBERON:2000425
 [Term]
 id: CL:1000245
 name: posterior lateral line ganglion neuron
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:2001314
 
 [Term]
@@ -24502,7 +24388,7 @@ name: kidney nerve cell
 namespace: cell
 xref: KUPO:0001015
 is_a: CL:1000500 ! kidney interstitial cell
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:0002113
 
 [Term]
@@ -25553,7 +25439,7 @@ def: "The inhibitory projection neurons located in the striatum that integrate g
 synonym: "medium-sized densely spiny neuron" RELATED [BTO:0004778]
 synonym: "striatal medium spiny neuron" EXACT [GO:0021773]
 xref: BTO:0004778
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 relationship: BFO:0000050 UBERON:0000369
 
 [Term]
@@ -25569,7 +25455,7 @@ id: CL:1001503
 name: olfactory bulb tufted cell
 namespace: cl
 def: "The principal glutaminergic neuron located in the outer third of the external plexiform layer of the olfactory bulb; a single short primary dendrite traverses the outer external plexiform layer and terminates within an olfactory glomerulus in a tuft of branches, where it receives the input from olfactory receptor neuron axon terminals; axons of the tufted cells transfer information to a number of areas in the brain, including the piriform cortex, entorhinal cortex, olfactory tubercle, and amygdala." [MP:0009955]
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 relationship: BFO:0000050 UBERON:0005376
 
 [Term]
@@ -25579,7 +25465,7 @@ namespace: cl
 def: "The secretory neurons of the paraventricular nucleus that synthesize and secrete vasopressin, corticotropin-releasing factor (CRF) and thyrotropin-releasing hormone (TRH) into blood vessels in the hypothalamo-pituitary portal system." [MP:0010125]
 synonym: "parvocellular neuron" EXACT []
 synonym: "parvocellular neurosecretory neuron" EXACT []
-is_a: CL:0000540
+is_a: CL:0000540 ! neuron
 relationship: BFO:0000050 UBERON:0001930
 relationship: RO:0002215 GO:0030103
 
@@ -25588,8 +25474,8 @@ id: CL:1001509
 name: glycinergic neuron
 namespace: cl
 def: "The neurons that utilize glycine as a neurotransmitter." [MP:0010385]
-is_a: CL:0000540
-intersection_of: CL:0000540
+is_a: CL:0000540 ! neuron
+intersection_of: CL:0000540 ! neuron
 intersection_of: RO:0002215 GO:0061537
 
 [Term]
@@ -25780,7 +25666,7 @@ synonym: "lateral ventricle neural cell" RELATED [CALOHA:TS-1261]
 synonym: "lateral ventricle neuronal cell" RELATED [CALOHA:TS-1261]
 synonym: "lateral ventricle neuronal cells" RELATED [CALOHA:TS-1261]
 xref: CALOHA:TS-1261
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:0002285
 
 [Term]
@@ -26032,7 +25918,7 @@ def: "Neuron of the cerebellum." [NPX:PDR]
 synonym: "cerebellum neuron" RELATED [CALOHA:TS-2359]
 xref: CALOHA:TS-2359
 xref: FMA:84665
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:0002037
 
 [Term]
@@ -26276,7 +26162,7 @@ id: CL:2000024
 name: spinal cord medial motor column neuron
 namespace: cell
 def: "Any neuron that is part of a spinal cord medial motor column." [GOC:TermGenie]
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:0004059
 created_by: TermGenie
 creation_date: 2014-06-25T00:23:43Z
@@ -26325,7 +26211,7 @@ id: CL:2000029
 name: central nervous system neuron
 namespace: cell
 def: "Any neuron that is part of a central nervous system." [GOC:TermGenie]
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:0001017
 created_by: TermGenie
 creation_date: 2014-06-25T01:17:43Z
@@ -26345,7 +26231,7 @@ id: CL:2000031
 name: lateral line ganglion neuron
 namespace: cell
 def: "Any neuron that is part of a lateral line ganglion." [GOC:TermGenie]
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:2000120
 created_by: TermGenie
 creation_date: 2014-06-25T01:17:57Z
@@ -26355,7 +26241,7 @@ id: CL:2000032
 name: peripheral nervous system neuron
 namespace: cell
 def: "Any neuron that is part of a peripheral nervous system." [GOC:TermGenie]
-intersection_of: CL:0000540
+intersection_of: CL:0000540 ! neuron
 intersection_of: BFO:0000050 UBERON:0000010
 created_by: TermGenie
 creation_date: 2014-06-25T02:28:17Z
@@ -26578,12 +26464,9 @@ id: CL:2000054
 name: hepatic pit cell
 namespace: cell
 def: "A large, granular, liver specific natural killer cell that adheres to the endothelial cells of the hepatic sinusoid." [] {database_cross_reference="GOC:dos", database_cross_reference="PMID:9408963"}
-def: "A large, granular, liver specific natural killer cell that adheres to the endothelial cells of the hepatic sinusoid." [GOC:dos, PMID:9408963]
 comment: Pit cells are named for the presence of large cytoplasmic granules that resemble pits (pips) of fruit.
 is_a: CL:0000623 ! natural killer cell
-relationship: BFO:0000051 GO:0030141
 relationship: RO:0001025 UBERON:0001281
-creation_date: 2014-10-06T19:08:51Z
 
 [Term]
 id: CL:2000055
@@ -27094,7 +26977,7 @@ creation_date: 2019-02-25T19:34:33Z
 id: CP:0000000
 name: neutrophillic cytoplasm
 namespace: cell
-def: "Cytoplasm that exhibits molecular interaction for acidic dyes under specific pH conditions." [GOC:tfm]
+def: "Cytoplasm that exhibits a characteristic staining and color, pale-pink, with Wright-Giemsa stain." [GOC:add]
 is_a: GO:0005737
 created_by: tmeehan
 creation_date: 2010-05-25T01:36:34Z
@@ -27114,7 +26997,7 @@ creation_date: 2009-12-22T03:54:43Z
 id: CP:0000027
 name: acidophilic cytoplasm
 namespace: cell
-def: "Cytoplasm that exhibits molecular interaction for acidic dyes under specific pH conditions." [GOC:tfm]
+def: "Cytoplasm that exhibits a characteristic staining and color, red or pink, with Eosin stain." [GOC:add]
 synonym: "eosinophilic" NARROW []
 is_a: GO:0005737
 created_by: tmeehan
@@ -27179,25 +27062,6 @@ def: "Heterochromatin that is arranged in a carthwheel pattern." [GOC:tfm]
 is_a: GO:0000792
 created_by: tmeehan
 creation_date: 2009-12-28T04:28:35Z
-
-[Term]
-id: GO:0005623
-comment: GO is planning to obsolete this term in favor of the CL 'cell' term.
-
-[Term]
-id: GO:0032634
-name: interleukin-5 production
-is_a: GO:0001816
-
-[Term]
-id: GO:0043379
-name: memory T cell differentiation
-is_a: GO:0002292
-
-[Term]
-id: PATO:0045026
-name: normal life span
-is_a: PATO:0000050
 
 [Term]
 id: http://purl.obolibrary.org/obo/D96882F1-8709-49AB-BCA9-772A67EA6C33

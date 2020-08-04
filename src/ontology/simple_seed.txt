@@ -2427,6 +2427,7 @@ http://purl.org/dc/elements/1.1/license
 http://purl.org/dc/elements/1.1/title
 http://purl.org/dc/terms/creator
 http://purl.org/dc/terms/date
+http://purl.org/dc/terms/license
 http://semanticscience.org/resource/SIO_000658
 http://www.geneontology.org/formats/oboInOwl#SubsetProperty
 http://www.geneontology.org/formats/oboInOwl#SynonymTypeProperty
