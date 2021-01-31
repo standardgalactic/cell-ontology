@@ -7,32 +7,36 @@ description: A cell that is part of an anatomical entity.
 contributors:
   - https://orcid.org/0000-0001-5208-3432
   - https://orcid.org/0000-0002-6601-2165
-  
-classes: 
+
+classes:
   cell: "CL:0000000"
   anatomical entity: "UBERON:0001062"
 
-relations: 
+relations:
   part of: "BFO:0000050"
 
 vars:
   cell: "'cell'"
-  anatomical entity: "'anatomical entity'"
+  anatomical_entity: "'anatomical entity'"
+
+data_list_vars:
+  def_xrefs: "xsd:string"
 
 name:
-  text: "%s %s"
+  text: "%s of %s"
   vars:
     - cell
-    - anatomical entity
+    - anatomical_entity
 
 def:
   text: "Any %s that is part of a %s."
   vars:
     - cell
-    - anatomical entity
+    - anatomical_entity
+  xrefs: def_xrefs
 
 equivalentTo:
   text: "%s and ('part of' some %s)"
   vars:
     - cell
-    - anatomical entity
+    - anatomical_entity
